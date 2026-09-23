@@ -27,7 +27,7 @@ export default async function GstPackThanksPage({
         <>
           <h1 className="text-3xl font-bold">Payment received</h1>
           <p className="mt-4 leading-8 text-[var(--muted-foreground)]">
-            Download the zip. It has the three free GST files plus the IGST invoice, the GTA worked example, and the RCM register. Bookmark this page or keep the email you paid with.
+            Download the extras zip: IGST invoice, GTA worked example, and RCM register. The free GST files are not in this zip — get those from the template pages. Bookmark this page or keep the email you paid with.
           </p>
           <Button asChild size="lg" className="mt-6">
             <a href={`/api/pack/download?token=${encodeURIComponent(token)}`}>Download GST pack zip</a>

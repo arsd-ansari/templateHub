@@ -9,17 +9,20 @@ import { razorpayConfigured } from "@/lib/razorpay";
 export const metadata: Metadata = {
   title: "GST Compliance Excel Pack — ₹299",
   description:
-    "One-time ₹299 Excel pack: GST invoice, RCM self invoice, payment voucher, plus pack-only IGST invoice, GTA worked example, and RCM register.",
+    "Paid extras only: IGST invoice, filled GTA RCM example, and SI/PV register. The free GST files stay free and are not in this zip.",
   alternates: { canonical: GST_PACK.href }
 };
 
 const INCLUDED = [
-  { name: "GST tax invoice (CGST + SGST)", extra: false, href: "/templates/gst-invoice-template" },
-  { name: "RCM self invoice", extra: false, href: "/templates/self-invoice-rcm-template" },
-  { name: "RCM payment voucher", extra: false, href: "/templates/rcm-payment-voucher-template" },
-  { name: "Inter-state IGST tax invoice", extra: true },
-  { name: "Filled GTA freight example (₹18,500 at 5%)", extra: true },
-  { name: "RCM document register (SI + PV log)", extra: true }
+  { name: "Inter-state IGST tax invoice", note: "One IGST column. Use when the buyer is in another state." },
+  { name: "Filled GTA freight example (₹18,500 at 5%)", note: "Shows cash to the GTA vs cash to the government, plus GSTR-3B tables." },
+  { name: "RCM document register", note: "Year log that joins Self Invoice No. and Payment Voucher No." }
+];
+
+const FREE = [
+  { name: "GST tax invoice (CGST + SGST)", href: "/templates/gst-invoice-template" },
+  { name: "RCM self invoice", href: "/templates/self-invoice-rcm-template" },
+  { name: "RCM payment voucher", href: "/templates/rcm-payment-voucher-template" }
 ];
 
 export default function GstPackPage() {
@@ -31,7 +34,7 @@ export default function GstPackPage() {
           "@type": "Product",
           name: GST_PACK.title,
           description:
-            "One-time ₹299 Excel pack: GST invoice, RCM files, IGST invoice, GTA example, and RCM register.",
+            "Paid extras only: IGST invoice, GTA worked example, and RCM register. Free GST files are not included.",
           url: `${SITE_URL}${GST_PACK.href}`,
           offers: {
             "@type": "Offer",
@@ -46,20 +49,25 @@ export default function GstPackPage() {
       </p>
       <h1 className="mt-4 text-4xl font-bold leading-tight">{GST_PACK.title}</h1>
       <p className="mt-4 text-lg leading-8 text-[var(--muted-foreground)]">
-        One zip, ₹{GST_PACK.priceInr} once. The three free GST files stay free on the site. Buyers get those plus three pack-only workbooks: IGST invoice, a filled GTA example, and a register that joins self invoice and payment voucher numbers.
+        ₹{GST_PACK.priceInr} once for files that are <strong>not</strong> on the free pages: an IGST invoice, a filled GTA example, and an RCM register. The usual GST invoice, RCM self invoice, and payment voucher stay free — they are not in this zip.
       </p>
 
-      <ul className="mt-8 grid gap-3">
+      <h2 className="mt-8 text-xl font-bold">In this zip</h2>
+      <ul className="mt-4 grid gap-3">
         {INCLUDED.map((item) => (
           <li key={item.name} className="rounded-lg border border-[var(--border)] bg-[var(--card)] px-4 py-3 text-sm leading-6">
             <strong>{item.name}</strong>
-            {item.extra ? (
-              <span className="ml-2 text-[var(--muted-foreground)]">Pack only</span>
-            ) : (
-              <span className="ml-2 text-[var(--muted-foreground)]">
-                Also free — {item.href ? <Link className="text-[var(--primary)]" href={item.href}>open page</Link> : null}
-              </span>
-            )}
+            <span className="mt-1 block text-[var(--muted-foreground)]">{item.note}</span>
+          </li>
+        ))}
+      </ul>
+
+      <h2 className="mt-8 text-xl font-bold">Free on the site (not in the pack)</h2>
+      <ul className="mt-4 grid gap-3">
+        {FREE.map((item) => (
+          <li key={item.name} className="rounded-lg border border-[var(--border)] px-4 py-3 text-sm leading-6">
+            <Link className="font-semibold text-[var(--primary)]" href={item.href}>{item.name}</Link>
+            <span className="ml-2 text-[var(--muted-foreground)]">Free download</span>
           </li>
         ))}
       </ul>

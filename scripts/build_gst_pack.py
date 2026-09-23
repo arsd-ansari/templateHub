@@ -244,30 +244,29 @@ def write_register(path: Path) -> None:
     wb.save(path)
 
 
-GUIDE = """TemplateHub GST Compliance Pack
-================================
-One-time purchase. Free single files stay free on the site.
+GUIDE = """TemplateHub GST Pack (paid extras only)
+=======================================
+This zip does NOT include the free site files. Those stay free:
+  https://templatehub.co.in/templates/gst-invoice-template
+  https://templatehub.co.in/templates/self-invoice-rcm-template
+  https://templatehub.co.in/templates/rcm-payment-voucher-template
 
-WHAT IS IN THIS ZIP
-1. 01-gst-invoice-template.xlsx
-   Intra-state tax invoice (CGST + SGST). Same file as the free download.
-2. 02-self-invoice-rcm-template.xlsx
-   RCM self invoice (Section 31(3)(f)). Same as the free download.
-3. 03-rcm-payment-voucher-template.xlsx
-   Payment voucher (Section 31(3)(g)). Same as the free download.
-4. 04-gst-invoice-igst-template.xlsx  (PACK ONLY)
+WHAT IS IN THIS ZIP (not on the free pages)
+1. 01-gst-invoice-igst-template.xlsx
    Inter-state tax invoice. One IGST column at the full rate. Use when
    place of supply is another state.
-5. 05-gta-freight-worked-example.xlsx  (PACK ONLY)
+2. 02-gta-freight-worked-example.xlsx
    Filled GTA freight of Rs 18,500 at 5%. Shows what you pay the GTA
    vs what you pay the government, and the GSTR-3B tables.
-6. 06-rcm-document-register.xlsx  (PACK ONLY)
+3. 03-rcm-document-register.xlsx
    Year log that joins Self Invoice No. and Payment Voucher No.
 
-HOW TO USE (RCM)
-- Receive goods/services from an unregistered supplier → fill file 02, new SI-xxx.
-- Pay the supplier → fill file 03, new PV-xxx, copy the same SI number.
-- Log both numbers on file 06 the same day.
+HOW TO USE WITH THE FREE FILES
+- Intra-state sale → free GST invoice.
+- Inter-state sale → file 01 in this zip.
+- Unregistered inward supply → free self invoice (SI-xxx) + free payment
+  voucher (PV-xxx). Copy SI-014 / PV-014 from file 02 as a worked pattern.
+- Log every RCM pair on file 03 the same day.
 - Pay RCM GST from the electronic cash ledger. Do not add GST to the supplier NEFT.
 
 This pack is a spreadsheet kit, not legal advice. Confirm rates (especially GTA
@@ -288,12 +287,9 @@ def main() -> None:
 
     zip_path = PACK_DIR / ZIP_NAME
     files = [
-        (ROOT / "public/files/gst-invoice-template.xlsx", "01-gst-invoice-template.xlsx"),
-        (ROOT / "public/files/self-invoice-rcm-template.xlsx", "02-self-invoice-rcm-template.xlsx"),
-        (ROOT / "public/files/rcm-payment-voucher-template.xlsx", "03-rcm-payment-voucher-template.xlsx"),
-        (igst, "04-gst-invoice-igst-template.xlsx"),
-        (gta, "05-gta-freight-worked-example.xlsx"),
-        (reg, "06-rcm-document-register.xlsx"),
+        (igst, "01-gst-invoice-igst-template.xlsx"),
+        (gta, "02-gta-freight-worked-example.xlsx"),
+        (reg, "03-rcm-document-register.xlsx"),
     ]
     missing = [str(src) for src, _ in files if not src.exists()]
     if missing:
