@@ -1,6 +1,6 @@
 export const SITE_NAME = "TemplateHub";
 export const SITE_DESCRIPTION =
-  "Free Excel templates for GST invoices, RCM self invoices, accounting, payroll, budgets, and business spreadsheets. Download .xlsx files for Excel and Google Sheets.";
+  "Free Excel templates for GST invoices, RCM invoice format, payment vouchers, accounting, payroll, budgets, and business spreadsheets. Download .xlsx files for Excel and Google Sheets.";
 export const SITE_URL = process.env.SITE_URL || "http://localhost:3000";
 
 export const SITE_AUTHOR = {

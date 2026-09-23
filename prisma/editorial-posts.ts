@@ -148,7 +148,7 @@ If you report 3.1(d) and forget 4A(3), you have paid tax and given up the credit
 
 ## Step 5 — payment voucher
 
-When you NEFT the GTA ₹18,500, raise a payment voucher with the same supplier details, amount, and a reference to SI-014. Keep LR copy + self invoice + voucher + bank proof in one folder. That bundle is what a GST officer asks for, not a screenshot of the Excel total.
+When you NEFT the GTA ₹18,500, raise a payment voucher with the same supplier details, amount, and a reference to SI-014. Download the [RCM payment voucher format](/templates/rcm-payment-voucher-template). Keep LR copy + self invoice + voucher + bank proof in one folder. That bundle is what a GST officer asks for, not a screenshot of the Excel total.
 
 ## Mistakes this example is designed to prevent
 
@@ -266,7 +266,7 @@ A founder who reads only the bank app will think a high-collection month is a hi
 
 ## What to add in month two or three
 
-- **GST registered + unregistered inward supplies:** [RCM self invoice](/templates/self-invoice-rcm-template).
+- **GST registered + unregistered inward supplies:** [RCM self invoice](/templates/self-invoice-rcm-template) plus the [RCM payment voucher](/templates/rcm-payment-voucher-template).
 - **Spending too noisy in the cash book:** [expense tracker](/templates/business-expense-tracker).
 - **First employee:** [salary slip](/templates/salary-slip-template) plus an attendance grid (see the HR category guide).
 - **HRA on that salary:** [rent receipt](/templates/rent-receipt-template).

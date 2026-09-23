@@ -31,15 +31,15 @@ const HOME_FAQS = [
   },
   {
     question: "What kinds of templates are available?",
-    answer: "TemplateHub focuses on business-critical spreadsheets: GST invoices, RCM self invoices for unregistered suppliers, general invoices, cash books, profit and loss statements, expense trackers, salary slips, and Excel formula guides like VLOOKUP. New templates are added regularly."
+    answer: "TemplateHub focuses on business-critical spreadsheets: GST invoices, RCM invoice format (self invoice) and payment vouchers for unregistered suppliers, general invoices, cash books, profit and loss statements, expense trackers, salary slips, and Excel formula guides like VLOOKUP. New templates are added regularly."
   },
   {
     question: "Who writes the templates and guides?",
     answer: "Arshad Ansari, a software engineer. Each workbook is labelled to the job it performs (GST invoice vs RCM self invoice vs cash book), tested in Excel, Google Sheets, and LibreOffice, and published with a written explainer. Corrections go to the contact page."
   },
   {
-    question: "Do you have a self invoice format under GST for RCM?",
-    answer: "Yes. Download the free Self Invoice Format Under GST (RCM) Excel template when you buy from an unregistered supplier and GST is payable under Reverse Charge. It auto-calculates CGST and SGST."
+    question: "Do you have an RCM invoice format in Excel?",
+    answer: "Yes. Download the free RCM invoice format (self invoice under GST) for unregistered dealer purchases, GTA freight, and advocate fees. When you pay the supplier, use the matching RCM payment voucher. Both files auto-calculate CGST and SGST."
   }
 ];
 
@@ -51,15 +51,16 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [featured, popular, categories, posts, gstInvoice, rcmInvoice] = await Promise.all([
+  const [featured, popular, categories, posts, gstInvoice, rcmInvoice, rcmVoucher] = await Promise.all([
     getTemplates({ pageSize: 6 }),
     getTopTemplates(5),
     getTemplateCategories(),
     getLatestBlogPosts(6),
     getTemplateBySlug("gst-invoice-template"),
-    getTemplateBySlug("self-invoice-rcm-template")
+    getTemplateBySlug("self-invoice-rcm-template"),
+    getTemplateBySlug("rcm-payment-voucher-template")
   ]);
-  const gstPicks = [gstInvoice, rcmInvoice].filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const gstPicks = [gstInvoice, rcmInvoice, rcmVoucher].filter((item): item is NonNullable<typeof item> => Boolean(item));
   const liveCategories = categories.filter((category) => category._count.templates > 0);
 
   return (
@@ -88,14 +89,15 @@ export default async function HomePage() {
               Download GST invoices, RCM self invoices, expense trackers, payroll, and budget spreadsheets. Every file is free .xlsx for Excel and Google Sheets.
             </p>
             <form action="/search" className="mt-8 flex max-w-2xl gap-2 rounded-lg border border-[var(--border)] bg-[var(--background)] p-2">
-              <Input name="q" placeholder="Search GST invoice, self invoice RCM, budget..." className="border-0 bg-transparent" />
+              <Input name="q" placeholder="Search RCM invoice format, GST invoice, budget..." className="border-0 bg-transparent" />
               <Button type="submit">
                 <Search size={17} /> Search
               </Button>
             </form>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <Link href="/templates/gst-invoice-template" className="text-[var(--primary)] underline-offset-4 hover:underline">GST Invoice</Link>
-              <Link href="/templates/self-invoice-rcm-template" className="text-[var(--primary)] underline-offset-4 hover:underline">Self Invoice (RCM)</Link>
+              <Link href="/templates/self-invoice-rcm-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Invoice Format</Link>
+              <Link href="/templates/rcm-payment-voucher-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Payment Voucher</Link>
               <Link href="/categories/gst-templates" className="text-[var(--primary)] underline-offset-4 hover:underline">All GST templates</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -129,7 +131,7 @@ export default async function HomePage() {
             <div>
               <h2 className="text-2xl font-bold">GST Invoice Templates (India)</h2>
               <p className="mt-2 text-[var(--muted-foreground)]">
-                Tax invoice for registered sales, plus the self invoice format under GST for Reverse Charge (RCM).
+                Tax invoice for registered sales, plus the RCM invoice format (self invoice) and payment voucher for Reverse Charge.
               </p>
             </div>
             <Button asChild variant="outline">

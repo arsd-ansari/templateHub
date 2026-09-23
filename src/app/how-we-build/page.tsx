@@ -14,11 +14,11 @@ export const metadata: Metadata = {
 const STEPS = [
   {
     name: "Pick one job for the workbook",
-    text: "A file is either a GST tax invoice, an RCM self invoice, a cash book, or a P&L — not all four. Mixed-purpose sheets hide the wrong fields and fail the first audit question: what is this document?"
+    text: "A file is either a GST tax invoice, an RCM self invoice, an RCM payment voucher, a cash book, or a P&L — not all of those at once. Mixed-purpose sheets hide the wrong fields and fail the first audit question: what is this document?"
   },
   {
     name: "List the mandatory fields first",
-    text: "For GST invoices that list is CGST Rule 46. For RCM self invoices it is Section 31(3)(f) plus a Reverse Charge flag. For salary slips it is earnings, statutory deductions, and net pay. Labels go on the sheet before any formatting."
+    text: "For GST invoices that list is CGST Rule 46. For RCM self invoices it is Section 31(3)(f) plus a Reverse Charge flag. For RCM payment vouchers it is Section 31(3)(g) and Rule 52. For salary slips it is earnings, statutory deductions, and net pay. Labels go on the sheet before any formatting."
   },
   {
     name: "Write formulas a Sheets user can keep",
@@ -69,8 +69,9 @@ export default function HowWeBuildPage() {
         <h2>Why this page exists</h2>
         <p>
           AdSense and search reviewers (and you) should be able to see that the site is a maintained library with a named editor, not an auto-generated download mill. The steps below are the same ones used for the{" "}
-          <Link href="/templates/gst-invoice-template">GST invoice</Link> and{" "}
-          <Link href="/templates/self-invoice-rcm-template">RCM self invoice</Link> files that are already live.
+          <Link href="/templates/gst-invoice-template">GST invoice</Link>,{" "}
+          <Link href="/templates/self-invoice-rcm-template">RCM invoice format</Link>, and{" "}
+          <Link href="/templates/rcm-payment-voucher-template">RCM payment voucher</Link> files that are already live.
         </p>
 
         <h2>The publishing checklist</h2>

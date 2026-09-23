@@ -179,7 +179,7 @@ async function main() {
         {
           question: "What if the supplier is unregistered?",
           answer:
-            "If GST is payable by you under Reverse Charge, you must issue a self invoice — not a regular GST tax invoice. Download the [self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template)."
+            "If GST is payable by you under Reverse Charge, you must issue a self invoice — not a regular GST tax invoice. Download the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template), then the [RCM payment voucher](/templates/rcm-payment-voucher-template) when you pay."
         }
       ]
     };
@@ -196,10 +196,10 @@ async function main() {
     });
 
     const selfInvoiceData = {
-      title: "Self Invoice Format Under GST (RCM) — Free Excel Download",
+      title: "RCM Invoice Format in Excel — Self Invoice Under GST",
       description:
-        "Free self invoice format under GST for Reverse Charge (RCM) in Excel and Google Sheets. Use this RCM invoice format when you buy from an unregistered supplier. Auto-calculates CGST, SGST, and totals. Free Excel download.",
-      content: `This is a **free Excel download** of the self invoice format under GST for RCM (Reverse Charge Mechanism). Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
+        "Free RCM invoice format in Excel and Google Sheets. Download this self invoice / RCM bill format for unregistered dealer purchases. Auto-calculates CGST, SGST, and totals.",
+      content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **RCM bill format** or an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
 
 Under Section 31(3)(f) of the CGST Act, a registered business that receives goods or services from an **unregistered supplier** (where GST is payable under Reverse Charge Mechanism) must issue a **self invoice** to itself.
 
@@ -234,7 +234,7 @@ This confuses everyone at first:
 - **Self invoice** is raised when you **receive** the goods or services — it is the tax document.
 - **Payment voucher** is raised when you **pay** the supplier — it is the payment record.
 
-Section 31(3)(g) makes the payment voucher mandatory whenever tax is payable under Reverse Charge. Both go in your records; the self invoice is what supports your ITC claim.
+Section 31(3)(g) makes the payment voucher mandatory whenever tax is payable under Reverse Charge. Both go in your records; the self invoice is what supports your ITC claim. Download the matching [RCM payment voucher format](/templates/rcm-payment-voucher-template) and fill it on the day you pay.
 
 ## Step-by-step: how to use this template
 
@@ -250,17 +250,19 @@ Section 31(3)(g) makes the payment voucher mandatory whenever tax is payable und
 
 - **Using the same invoice series as regular sales invoices** — keep RCM self invoices in a separate SI-xxx series.
 - **Trying to pay RCM tax by adjusting Input Tax Credit** — RCM tax is always paid in cash from the electronic cash ledger.
-- **Skipping the Payment Voucher** — the self invoice covers receipt; you still need a payment voucher when you pay.
+- **Skipping the Payment Voucher** — the self invoice covers receipt; you still need a [payment voucher](/templates/rcm-payment-voucher-template) when you pay.
 - **Not claiming ITC in the same or next tax period** — the credit lapses if you miss the deadline (September following the financial year).
 - **Applying the wrong GST rate** — RCM uses the same rate as if the supplier were registered (e.g. GTA is 5% without ITC to supplier or 12% with ITC).
+
+When you pay the supplier, raise the matching [RCM payment voucher](/templates/rcm-payment-voucher-template) — Section 31(3)(g) requires both documents.
 
 For a regular tax invoice where the supplier is registered, use the [GST Invoice Template](/templates/gst-invoice-template). For general (non-GST) invoicing, see the [Invoice Template](/templates/invoice-template). Step-by-step guide: [Self Invoice Format Under GST (RCM) in Excel](/blog/how-to-create-self-invoice-under-gst-rcm-in-excel).`,
       fileUrl: "/files/self-invoice-rcm-template.xlsx",
       thumbnailUrl: null,
       categoryId: gstCategory.id,
-      seoTitle: "Self Invoice Format Under GST (RCM) Excel Free Download",
+      seoTitle: "RCM Invoice Format in Excel — Self Invoice Under GST (Free Download)",
       seoDescription:
-        "Free self invoice format under GST for RCM in Excel. Download the RCM invoice template for unregistered suppliers, GTA freight, and advocate fees. Auto CGST and SGST.",
+        "Free RCM invoice format in Excel. Self invoice and RCM bill format for unregistered dealer invoice in Excel. Auto CGST and SGST. Free download.",
       features: [
         "Fully compliant with Section 31(3)(f) of the CGST Act",
         "Auto-calculates CGST, SGST, taxable value, and grand total",
@@ -277,7 +279,7 @@ For a regular tax invoice where the supplier is registered, use the [GST Invoice
         "Select the reason for RCM (unregistered dealer, GTA, advocate, director's remuneration, etc.).",
         "Add each line item — description, HSN/SAC, quantity, rate, and GST rate.",
         "Verify Grand Total and write the amount in words.",
-        "Raise a separate Payment Voucher when you pay the supplier."
+        "Download the matching RCM payment voucher and fill it when you pay the supplier."
       ],
       faqs: [
         {
@@ -291,9 +293,14 @@ For a regular tax invoice where the supplier is registered, use the [GST Invoice
             "Self invoicing under GST is the same process: you issue the GST invoice to yourself for an inward supply where Reverse Charge applies. The self invoice format under GST for RCM includes your GSTIN as recipient, the unregistered supplier's name (no GSTIN), Reverse Charge = Yes, and tax lines for CGST/SGST or IGST."
         },
         {
-          question: "What is the RCM invoice format under GST?",
+          question: "What is the RCM invoice format / RCM bill format in Excel?",
           answer:
-            "The RCM invoice format in Excel is a self invoice: recipient details and GSTIN, unregistered supplier block, unique SI-series number, HSN/SAC line items, GST rate, auto CGST/SGST, and a Reverse Charge flag. Download the free Excel file on this page and fill it in Excel or Google Sheets."
+            "The RCM invoice format (also called RCM bill format) is a self invoice you raise when GST is payable under Reverse Charge. This page is a free Excel download of that format: recipient GSTIN, unregistered supplier block, SI-series number, HSN/SAC lines, and auto CGST/SGST."
+        },
+        {
+          question: "Is this an unregistered dealer invoice format in Excel?",
+          answer:
+            "Yes. Use this file as the unregistered dealer invoice format when you buy from a dealer who has no GSTIN and tax is under RCM. Fill their name and address, leave GSTIN blank, and mark Reverse Charge as Yes."
         },
         {
           question: "Is there a free self invoice format under GST Excel download?",
@@ -308,7 +315,7 @@ For a regular tax invoice where the supplier is registered, use the [GST Invoice
         {
           question: "What is the difference between a self invoice and a payment voucher under RCM?",
           answer:
-            "A self invoice is raised when you receive the goods or services and is the tax document that supports your Input Tax Credit claim. A payment voucher is raised separately when you pay the supplier and is required under Section 31(3)(g). You need both documents in your records for every RCM transaction."
+            "A self invoice is raised when you receive the goods or services and is the tax document that supports your Input Tax Credit claim. A payment voucher is raised separately when you pay the supplier and is required under Section 31(3)(g). Download the free [RCM payment voucher](/templates/rcm-payment-voucher-template) and keep both files for every RCM transaction."
         },
         {
           question: "Can I claim Input Tax Credit on RCM tax paid?",
@@ -331,9 +338,128 @@ For a regular tax invoice where the supplier is registered, use the [GST Invoice
         content: selfInvoiceData.content,
         seoTitle: selfInvoiceData.seoTitle,
         seoDescription: selfInvoiceData.seoDescription,
+        features: selfInvoiceData.features,
+        instructions: selfInvoiceData.instructions,
         faqs: selfInvoiceData.faqs
       },
       create: { slug: "self-invoice-rcm-template", ...selfInvoiceData }
+    });
+
+    const paymentVoucherData = {
+      title: "RCM Payment Voucher Format in Excel",
+      description:
+        "Free GST payment voucher for Reverse Charge in Excel. Record payment to an unregistered supplier, link the self invoice number, and see RCM GST payable to government. Works in Google Sheets.",
+      content: `This is a free **RCM payment voucher format in Excel**. Use it when you pay an unregistered supplier and GST is payable by you under Reverse Charge. Section 31(3)(g) of the CGST Act (and Rule 52) requires a payment voucher for every such payment. It is not a tax invoice and it is not a substitute for the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template).
+
+Fill voucher number, payment date, mode (NEFT / UPI / cheque / cash), UTR, and the matching Self Invoice No. Enter each line's amount paid to the supplier and the GST rate. The sheet totals what you send the supplier, then shows CGST and SGST you must pay separately to the government from the cash ledger.
+
+## Why a payment voucher is mandatory under RCM
+
+The self invoice is raised when you **receive** the goods or services. The payment voucher is raised when you **pay**. A bank statement proves money moved. It does not replace the prescribed voucher. A GST officer asks for the bundle: plain supplier bill + self invoice + payment voucher + UTR.
+
+You need this voucher for the same inward supplies as the self invoice:
+
+- Purchases from an **unregistered dealer**
+- **GTA freight** paid to an unregistered transporter
+- **Advocate** or advocate-firm fees
+- Director's remuneration, sponsorship, import of services, and other notified Reverse Charge supplies
+
+## What you pay the supplier vs what you pay the government
+
+Do not add GST to the supplier's NEFT. They are unregistered; they cannot collect tax.
+
+| Payment | Who receives it | Source on this sheet |
+|---|---|---|
+| Billed amount (taxable value) | Unregistered supplier | Total paid to supplier |
+| CGST + SGST (or IGST) under RCM | Government | Total GST under RCM |
+
+Existing Input Tax Credit cannot discharge the RCM tax. Pay it in cash, report it in GSTR-3B Table 3.1(d), and claim the same amount as ITC in Table 4A(3) using the self invoice.
+
+## Step-by-step: how to use this template
+
+1. **Fill your (recipient) details** — legal name, address, GSTIN, state and code. You issue and sign this voucher.
+2. **Number it in a PV-xxx series** — keep it separate from sales invoices and from the SI-xxx self invoice series.
+3. **Enter payment date, mode, and UTR / cheque number.**
+4. **Copy the Self Invoice No.** from the matching [RCM self invoice](/templates/self-invoice-rcm-template) so the two documents join.
+5. **Add the unregistered supplier (payee)** — name, address, state. Leave GSTIN blank.
+6. **Enter each line** — description, HSN/SAC, amount paid to the supplier, GST %. CGST and SGST fill in as tax you owe the government, not as an add-on to the supplier.
+7. **Check both totals** — supplier payment vs RCM GST — then write the supplier amount in words and sign.
+
+## Common mistakes
+
+- **Treating the NEFT as the voucher.** The transfer is evidence. The voucher is the document.
+- **Adding GST to the supplier payment.** Column D is what they receive. RCM GST goes to the cash ledger.
+- **Leaving Self Invoice No. blank.** Without it, an auditor cannot match receipt and payment.
+- **Using the same number series as sales invoices or self invoices.**
+- **Skipping the voucher because you already have a self invoice.** You need both.
+
+For the tax document raised at receipt, use the [RCM invoice format (self invoice under GST)](/templates/self-invoice-rcm-template). For a registered supplier's outward tax invoice, use the [GST Invoice Template](/templates/gst-invoice-template). Guide: [How to create a payment voucher under GST (RCM) in Excel](/blog/how-to-create-payment-voucher-under-gst-rcm-in-excel).`,
+      fileUrl: "/files/rcm-payment-voucher-template.xlsx",
+      thumbnailUrl: null,
+      categoryId: gstCategory.id,
+      seoTitle: "RCM Payment Voucher Format in Excel — Free GST Download",
+      seoDescription:
+        "Free GST payment voucher for RCM in Excel. Record payment to an unregistered supplier, link the self invoice, and calculate Reverse Charge GST. Free download.",
+      features: [
+        "Matches Section 31(3)(g) and Rule 52 payment-voucher fields",
+        "Self Invoice No. field so the voucher joins the RCM tax document",
+        "Payment mode, UTR / cheque number, and PV-xxx series",
+        "Separates amount paid to supplier from CGST/SGST owed to government",
+        "Reverse Charge flag pre-set to Yes",
+        "Works in Excel, Google Sheets, and LibreOffice"
+      ],
+      instructions: [
+        "Download the file and open it in Excel, Google Sheets, or LibreOffice.",
+        "Fill in your (recipient) business details, GSTIN, and state.",
+        "Assign a unique Payment Voucher number in a PV-xxx series.",
+        "Enter payment date, mode (NEFT / UPI / cheque / cash), and UTR or cheque number.",
+        "Copy the matching Self Invoice No. from your RCM self invoice.",
+        "Enter the unregistered supplier's name, address, and state — leave GSTIN blank.",
+        "Add each line — description, HSN/SAC, amount paid to the supplier, GST rate.",
+        "Check Total paid to supplier vs Total GST under RCM, write the supplier amount in words, and sign."
+      ],
+      faqs: [
+        {
+          question: "What is a payment voucher under GST RCM?",
+          answer:
+            "A payment voucher is the document a registered recipient must issue when they pay an unregistered supplier and GST is payable under Reverse Charge. Section 31(3)(g) and Rule 52 require it. It records who was paid, how much, on which date, and that tax is on reverse charge. It is not a tax invoice."
+        },
+        {
+          question: "Is a payment voucher the same as a self invoice?",
+          answer:
+            "No. Raise the self invoice when you receive the goods or services (Section 31(3)(f)). Raise the payment voucher when you pay (Section 31(3)(g)). Keep both. Download the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template) for the tax document."
+        },
+        {
+          question: "Do I add GST to the amount I pay the unregistered supplier?",
+          answer:
+            "No. Pay the supplier only their billed amount. You pay CGST and SGST (or IGST) separately to the government from the electronic cash ledger. This template shows those two totals on different rows so they are not mixed."
+        },
+        {
+          question: "Is a bank UTR enough instead of this voucher?",
+          answer:
+            "No. The UTR proves the transfer. The payment voucher is the prescribed GST document. Keep UTR + voucher + self invoice + the supplier's plain bill in one folder."
+        },
+        {
+          question: "Which number series should I use?",
+          answer:
+            "Use a consecutive PV-xxx series for payment vouchers, a separate SI-xxx series for self invoices, and keep both away from your outward sales INV- series."
+        }
+      ]
+    };
+    await prisma.template.upsert({
+      where: { slug: "rcm-payment-voucher-template" },
+      update: {
+        title: paymentVoucherData.title,
+        fileUrl: paymentVoucherData.fileUrl,
+        description: paymentVoucherData.description,
+        content: paymentVoucherData.content,
+        seoTitle: paymentVoucherData.seoTitle,
+        seoDescription: paymentVoucherData.seoDescription,
+        features: paymentVoucherData.features,
+        instructions: paymentVoucherData.instructions,
+        faqs: paymentVoucherData.faqs
+      },
+      create: { slug: "rcm-payment-voucher-template", ...paymentVoucherData }
     });
   }
 
@@ -1755,7 +1881,7 @@ This trips up a lot of people. Section 31(3)(f) requires the **self invoice** at
 
 ## Save time with a free template
 
-Setting up the RCM self invoice from scratch — with the Reverse Charge flag, the unregistered supplier block, and all the tax formulas — takes time and there are places to slip up. Instead, download our [free self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template). It has every required field, the Reverse Charge flag pre-set, live CGST + SGST formulas, and a built-in RCM compliance checklist.
+Setting up the RCM self invoice from scratch — with the Reverse Charge flag, the unregistered supplier block, and all the tax formulas — takes time and there are places to slip up. Instead, download our [free RCM invoice format / self invoice under GST](/templates/self-invoice-rcm-template). It has every required field, the Reverse Charge flag pre-set, live CGST + SGST formulas, and a built-in RCM compliance checklist. When you pay the supplier, fill the matching [RCM payment voucher](/templates/rcm-payment-voucher-template).
 
 If the supplier IS registered and issues their own invoice, you do not need a self invoice — you use their regular tax invoice. For that, our [GST Invoice Template](/templates/gst-invoice-template) is what you want.
 
@@ -1775,7 +1901,7 @@ The registered recipient (the buyer) issues it. This applies to purchases from u
 Yes. The RCM tax you pay in cash becomes ITC once the self invoice is raised and the tax is paid. Report the RCM liability in Table 3.1(d) of GSTR-3B and the ITC in Table 4A(3) of the same return. The ITC deadline is the September of the following financial year or the annual return filing date, whichever is earlier.
 
 ### What is the difference between a self invoice and a payment voucher?
-A self invoice is the tax document raised when you receive the goods or services — it is what supports your ITC claim. A payment voucher is a separate document raised when you make the payment to the supplier. Section 31(3)(g) makes the payment voucher mandatory for every RCM transaction, so you need both documents.
+A self invoice is the tax document raised when you receive the goods or services — it is what supports your ITC claim. A payment voucher is a separate document raised when you make the payment to the supplier. Section 31(3)(g) makes the payment voucher mandatory for every RCM transaction, so you need both documents. Download the [RCM payment voucher format](/templates/rcm-payment-voucher-template).
 
 ### Do I need a separate invoice series for RCM self invoices?
 Yes. Best practice is to maintain a distinct consecutive series (for example SI-001, SI-002) separate from your regular outward tax invoices. This makes RCM transactions easy to identify during return filing, reconciliation, and audits.
@@ -1805,6 +1931,94 @@ Yes. Download the [self invoice format under GST (RCM) Excel template](/template
         seoDescription: rcmPostData.seoDescription
       },
       create: { slug: "how-to-create-self-invoice-under-gst-rcm-in-excel", ...rcmPostData }
+    });
+
+    const paymentVoucherPostContent = `A bank UTR is not a GST payment voucher. When you pay an unregistered supplier and tax is under Reverse Charge, Section 31(3)(g) requires a **payment voucher**. This guide shows what goes on the voucher, how it differs from the self invoice, and how to fill the format in Excel. You can also [download the free RCM payment voucher](/templates/rcm-payment-voucher-template).
+
+## What is a payment voucher under GST?
+
+A payment voucher is the document the **registered recipient** issues when they pay for an inward supply on which GST is payable under Reverse Charge. Rule 52 lists the fields: your GSTIN, the supplier's name and address, a consecutive voucher number, the date, a description, the amount paid, the place of supply, and whether tax is on reverse charge.
+
+It is a payment record. It is not a tax invoice. ITC still sits on the [self invoice / RCM invoice format](/templates/self-invoice-rcm-template) you raised when you received the goods or services.
+
+## Self invoice vs payment voucher
+
+| Document | When | Law | Job |
+|---|---|---|---|
+| Self invoice | Receipt of goods or services | Section 31(3)(f) | Tax document for GSTR-3B and ITC |
+| Payment voucher | Payment to the supplier | Section 31(3)(g) / Rule 52 | Proof of payment in the prescribed form |
+
+Every RCM deal produces both. Skipping the voucher because "the NEFT is enough" is the usual mistake.
+
+## What you pay whom
+
+Pay the unregistered supplier **only their billed amount**. They cannot collect GST. You pay CGST + SGST (or IGST) to the government from the **electronic cash ledger**. Existing ITC cannot discharge Reverse Charge.
+
+Example — GTA freight of ₹18,500 at 5%:
+
+- NEFT to GTA: **₹18,500**
+- Cash ledger to government: **₹925** (CGST ₹462.50 + SGST ₹462.50 if intra-state)
+- Self invoice SI-014 records the tax
+- Payment voucher PV-014 records the ₹18,500 and points at SI-014
+
+## Step-by-step in Excel
+
+1. **Header.** Your legal name, address, GSTIN, state. You are the issuer.
+2. **Number.** Use a PV-xxx series. Do not reuse INV- or SI- numbers.
+3. **Payment block.** Date, mode (NEFT / UPI / cheque / cash), UTR or cheque number.
+4. **Self Invoice No.** Copy it from the matching self invoice so an auditor can join the two files.
+5. **Payee.** Unregistered supplier name, address, state. GSTIN stays blank.
+6. **Lines.** Description, HSN/SAC, amount paid to the supplier, GST %. Formulas should show CGST/SGST as tax **to government**, not as an add-on to the supplier total.
+7. **Sign.** Amount in words for the supplier payment. Authorised signatory.
+
+## Common mistakes
+
+- Adding 18% on top of the supplier NEFT
+- Leaving Self Invoice No. empty
+- Using one number series for sales, self invoices, and vouchers
+- Filing GSTR-3B Table 3.1(d) with no voucher in the folder
+- Treating a screenshot of the bank app as the document
+
+## Free template
+
+Download the [RCM payment voucher format](/templates/rcm-payment-voucher-template). Pair it with the [RCM invoice format (self invoice under GST)](/templates/self-invoice-rcm-template). For a registered supplier's outward invoice, use the [GST Invoice Template](/templates/gst-invoice-template) instead.
+
+## FAQ
+
+### Is a payment voucher required if I already have a self invoice?
+Yes. Receipt and payment are two events. The Act asks for two documents.
+
+### Can I pay RCM GST to the supplier?
+No. Pay them the billed amount only. Pay tax to the government in cash.
+
+### What series should I use?
+PV-001, PV-002 for vouchers. SI-001, SI-002 for self invoices. Keep both away from sales INV- numbers.
+
+### Where is the longer self-invoice guide?
+[Self invoice format under GST (RCM) in Excel](/blog/how-to-create-self-invoice-under-gst-rcm-in-excel).`;
+
+    const paymentVoucherPostData = {
+      title: "How to Create a Payment Voucher Under GST (RCM) in Excel",
+      excerpt:
+        "GST payment voucher for Reverse Charge: what Rule 52 requires, vs a self invoice, what you pay the supplier vs the government, and a free Excel download.",
+      content: paymentVoucherPostContent,
+      featuredImage: null,
+      categoryId: guidesCategory.id,
+      seoTitle: "Payment Voucher Under GST (RCM) in Excel — Free Format",
+      seoDescription:
+        "How to make a GST payment voucher for RCM in Excel — Rule 52 fields, vs self invoice, cash-ledger GST, and a free payment voucher download.",
+      published: true
+    };
+    await prisma.blogPost.upsert({
+      where: { slug: "how-to-create-payment-voucher-under-gst-rcm-in-excel" },
+      update: {
+        title: paymentVoucherPostData.title,
+        excerpt: paymentVoucherPostData.excerpt,
+        content: paymentVoucherPostData.content,
+        seoTitle: paymentVoucherPostData.seoTitle,
+        seoDescription: paymentVoucherPostData.seoDescription
+      },
+      create: { slug: "how-to-create-payment-voucher-under-gst-rcm-in-excel", ...paymentVoucherPostData }
     });
 
     const rentReceiptPostContent = `If you live in a rented house and receive House Rent Allowance (HRA) from your employer, rent receipts are the single most important document at tax time. They are what unlock the HRA exemption under Section 10(13A) of the Income Tax Act — and without them the entire HRA in your salary becomes taxable. Here is how to make a rent receipt in Excel that your employer and the income-tax department will accept.

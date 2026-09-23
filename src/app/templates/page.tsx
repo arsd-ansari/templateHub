@@ -9,7 +9,7 @@ import type { SortOption } from "@/types";
 export const metadata: Metadata = {
   title: "Free Excel Templates",
   description:
-    "Free GST invoice, RCM self invoice, cash book, P&L, expense, payroll, and budget spreadsheets for Excel and Google Sheets — unlocked files with written guides."
+    "Free GST invoice, RCM invoice format, RCM payment voucher, cash book, P&L, expense, payroll, and budget spreadsheets for Excel and Google Sheets — unlocked files with written guides."
 };
 
 export const revalidate = 1800;
