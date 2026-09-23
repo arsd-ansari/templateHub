@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input";
 import type { Metadata } from "next";
 import { getLatestBlogPosts } from "@/services/blog-service";
 import { getTemplateBySlug, getTemplateCategories, getTemplates, getTopTemplates } from "@/services/template-service";
+import { PackHomeSection } from "@/components/pack/pack-cta";
 import { SITE_DESCRIPTION } from "@/constants/site";
 
 const HOME_FAQS = [
@@ -137,13 +138,13 @@ export default async function HomePage() {
               <Button asChild variant="outline">
                 <Link href="/categories/gst-templates">GST category <ArrowRight size={16} /></Link>
               </Button>
-              <Button asChild>
-                <Link href="/pack/gst-compliance">GST pack ₹299</Link>
-              </Button>
             </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {gstPicks.map((template) => <TemplateCard key={template.slug} template={template} />)}
+          </div>
+          <div className="mt-8">
+            <PackHomeSection />
           </div>
         </section>
       ) : null}

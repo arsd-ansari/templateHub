@@ -3,8 +3,10 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import ReactMarkdown from "react-markdown";
 import { AdSlot } from "@/components/layout/ad-slot";
+import { PackCta } from "@/components/pack/pack-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { Badge } from "@/components/ui/badge";
+import { showGstPackCta } from "@/constants/pack";
 import { ADSENSE_SLOTS, SITE_AUTHOR, SITE_URL } from "@/constants/site";
 import { extractFaqsFromMarkdown } from "@/lib/faq";
 import { getBlogPostBySlug, getBlogPostSlugs } from "@/services/blog-service";
@@ -35,6 +37,7 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
   const post = await getBlogPostBySlug(slug);
   if (!post) notFound();
   const faqs = extractFaqsFromMarkdown(post.content);
+  const packRelated = showGstPackCta(`${post.slug} ${post.title}`);
 
   return (
     <div className="container py-10">
@@ -84,6 +87,11 @@ export default async function BlogDetailPage({ params }: { params: Promise<{ slu
         <div className="prose rounded-lg border border-[var(--border)] bg-[var(--card)] p-6">
           <ReactMarkdown>{post.content}</ReactMarkdown>
         </div>
+        {packRelated ? (
+          <div className="mt-8">
+            <PackCta />
+          </div>
+        ) : null}
       </article>
     </div>
   );
