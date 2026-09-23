@@ -3,13 +3,12 @@
 import Script from "next/script";
 import { usePathname } from "next/navigation";
 import { ADSENSE_CLIENT_ID } from "@/constants/site";
-
-const AD_FREE_PATHS = new Set(["/privacy", "/terms", "/contact", "/search"]);
+import { shouldLoadAds } from "@/lib/ads";
 
 export function AdSenseLoader() {
   const pathname = usePathname();
 
-  if (!ADSENSE_CLIENT_ID || AD_FREE_PATHS.has(pathname)) return null;
+  if (!ADSENSE_CLIENT_ID || !shouldLoadAds(pathname)) return null;
 
   return (
     <Script

@@ -17,15 +17,20 @@ export async function generateStaticParams() {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const categories = await getTemplateCategories();
+  const [categories, listed] = await Promise.all([
+    getTemplateCategories(),
+    getTemplates({ category: slug, pageSize: 1 })
+  ]);
   const category = categories.find((item) => item.slug === slug);
   const content = getCategoryContent(slug);
   if (!category) return {};
   const title = `Free ${category.name} for Excel & Google Sheets`;
   const description = content.longDescription || category.description;
+  const hasDownloads = listed.total > 0;
   return {
     title,
     description,
+    robots: hasDownloads ? undefined : { index: false, follow: false },
     alternates: { canonical: `/categories/${category.slug}` },
     openGraph: {
       title,
@@ -47,7 +52,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
   const content = getCategoryContent(slug);
   const relatedCategories = content.relatedCategorySlugs
     .map((s) => categories.find((c) => c.slug === s))
-    .filter((c): c is NonNullable<typeof c> => Boolean(c));
+    .filter((c): c is NonNullable<typeof c> => Boolean(c && c._count.templates > 0));
 
   return (
     <div className="container py-10">

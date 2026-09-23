@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { ArrowRight, Download, Search, Sparkles } from "lucide-react";
 import { BlogCard } from "@/components/blog/blog-card";
-import { AdSlot } from "@/components/layout/ad-slot";
 import { JsonLd } from "@/components/seo/json-ld";
 import { TemplateCard } from "@/components/templates/template-card";
 import { Button } from "@/components/ui/button";
@@ -10,7 +9,7 @@ import { Input } from "@/components/ui/input";
 import type { Metadata } from "next";
 import { getLatestBlogPosts } from "@/services/blog-service";
 import { getTemplateBySlug, getTemplateCategories, getTemplates, getTopTemplates } from "@/services/template-service";
-import { ADSENSE_SLOTS, SITE_DESCRIPTION } from "@/constants/site";
+import { SITE_DESCRIPTION } from "@/constants/site";
 
 const HOME_FAQS = [
   {
@@ -158,10 +157,6 @@ export default async function HomePage() {
           {featured.items.map((template) => <TemplateCard key={template.slug} template={template} />)}
         </div>
       </section>
-
-      <div className="container">
-        <AdSlot slot={ADSENSE_SLOTS.inArticle} />
-      </div>
 
       <section className="container py-10">
         <h2 className="text-2xl font-bold">How these spreadsheets are made</h2>

@@ -16,7 +16,10 @@ export async function globalSearch(query: string): Promise<SearchResult[]> {
       ORDER BY "createdAt" DESC LIMIT 8
     `,
     prisma.templateCategory.findMany({
-      where: { name: { contains: query, mode: "insensitive" } },
+      where: {
+        name: { contains: query, mode: "insensitive" },
+        templates: { some: {} }
+      },
       take: 4
     })
   ]);
