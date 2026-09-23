@@ -44,5 +44,6 @@ export const ADMIN_LINKS = [
   { href: "/admin/templates", label: "Templates" },
   { href: "/admin/blog", label: "Blog" },
   { href: "/admin/categories", label: "Categories" },
-  { href: "/admin/analytics", label: "Analytics" }
+  { href: "/admin/analytics", label: "Analytics" },
+  { href: "/admin/pack", label: "GST pack" }
 ];

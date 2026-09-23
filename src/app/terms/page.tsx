@@ -35,6 +35,10 @@ export default function TermsPage() {
             them for download on another website without permission.
           </li>
           <li>All trademarks, branding, and original content remain the property of {SITE_NAME}.</li>
+          <li>
+            Paid packs (including the GST Compliance Pack) are a one-time licence for your own use. You
+            may not share the zip or republish pack-only files.
+          </li>
         </ul>
 
         <h2>No professional advice</h2>

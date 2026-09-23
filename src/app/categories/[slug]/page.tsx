@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { CheckCircle2 } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
+import { PackCta } from "@/components/pack/pack-cta";
 import { TemplateCard } from "@/components/templates/template-card";
 import { getCategoryContent } from "@/constants/category-content";
 import { SITE_URL } from "@/constants/site";
@@ -93,6 +94,12 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
             <p key={i}>{p}</p>
           ))}
         </section>
+      ) : null}
+
+      {slug === "gst-templates" ? (
+        <div className="mt-8 max-w-3xl">
+          <PackCta />
+        </div>
       ) : null}
 
       {templates.length > 0 ? (

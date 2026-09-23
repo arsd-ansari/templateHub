@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { CheckCircle2, Download, FileSpreadsheet } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { AdSlot } from "@/components/layout/ad-slot";
+import { PackCta } from "@/components/pack/pack-cta";
 import { JsonLd } from "@/components/seo/json-ld";
 import { TemplateCard } from "@/components/templates/template-card";
 import { Badge } from "@/components/ui/badge";
@@ -153,6 +154,7 @@ export default async function TemplateDetailPage({ params }: { params: Promise<{
           ))}
         </article>
         <aside className="space-y-4">
+          {template.category?.slug === "gst-templates" ? <PackCta /> : null}
           <AdSlot slot={ADSENSE_SLOTS.sidebar} label="Sidebar AdSense-ready placement" />
           <Card className="p-5">
             <div className="font-semibold">How this file is checked</div>

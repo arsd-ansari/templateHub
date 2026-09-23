@@ -22,6 +22,9 @@ export function Footer() {
         <div>
           <div className="text-sm font-semibold">Resources</div>
           <div className="mt-3 grid gap-2 text-sm text-[var(--muted-foreground)]">
+            <Link href="/pack/gst-compliance" className="hover:text-[var(--foreground)]">
+              GST pack ₹299
+            </Link>
             <Link href="/how-we-build" className="hover:text-[var(--foreground)]">
               How we build templates
             </Link>

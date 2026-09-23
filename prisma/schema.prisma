@@ -157,3 +157,31 @@ model Tag {
   posts     BlogPost[] @relation("BlogPostTags")
   createdAt DateTime   @default(now())
 }
+
+model PackPurchase {
+  id                 String                   @id @default(cuid())
+  email              String
+  packSlug           String
+  razorpayOrderId    String?                  @unique
+  razorpayPaymentId  String?                  @unique
+  status             String                   @default("pending")
+  downloadToken      String                   @unique
+  downloadCount      Int                      @default(0)
+  customRequests     CustomTemplateRequest[]
+  createdAt          DateTime                 @default(now())
+  updatedAt          DateTime                 @updatedAt
+
+  @@index([email])
+  @@index([status])
+}
+
+model CustomTemplateRequest {
+  id         String        @id @default(cuid())
+  email      String
+  request    String
+  purchaseId String?
+  purchase   PackPurchase? @relation(fields: [purchaseId], references: [id], onDelete: SetNull)
+  createdAt  DateTime      @default(now())
+
+  @@index([createdAt])
+}

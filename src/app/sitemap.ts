@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ]);
 
   return [
-    "", "/templates", "/blog", "/about", "/contact", "/how-we-build", "/privacy", "/terms",
+    "", "/templates", "/blog", "/about", "/contact", "/how-we-build", "/privacy", "/terms", "/pack/gst-compliance",
     ...templates.items.map((item) => `/templates/${item.slug}`),
     ...posts.items.map((item) => `/blog/${item.slug}`),
     ...categories.filter((item) => item._count.templates > 0).map((item) => `/categories/${item.slug}`)

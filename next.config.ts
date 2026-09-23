@@ -36,6 +36,9 @@ const nextConfig: NextConfig = {
       bodySizeLimit: "8mb"
     }
   },
+  outputFileTracingIncludes: {
+    "/api/pack/download": ["./content/packs/**/*"]
+  },
   async redirects() {
     return [{ source: "/affiliate-disclosure", destination: "/privacy", permanent: true }];
   },

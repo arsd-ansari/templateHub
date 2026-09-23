@@ -133,9 +133,14 @@ export default async function HomePage() {
                 Tax invoice for registered sales, plus the RCM invoice format (self invoice) and payment voucher for Reverse Charge.
               </p>
             </div>
-            <Button asChild variant="outline">
-              <Link href="/categories/gst-templates">GST category <ArrowRight size={16} /></Link>
-            </Button>
+            <div className="flex flex-wrap gap-2">
+              <Button asChild variant="outline">
+                <Link href="/categories/gst-templates">GST category <ArrowRight size={16} /></Link>
+              </Button>
+              <Button asChild>
+                <Link href="/pack/gst-compliance">GST pack ₹299</Link>
+              </Button>
+            </div>
           </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {gstPicks.map((template) => <TemplateCard key={template.slug} template={template} />)}
