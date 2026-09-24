@@ -2,15 +2,16 @@
 
 :root {
   color-scheme: light;
-  --background: #f7f8fa;
+  --background: #f4f6f5;
   --foreground: #16181d;
-  --card: #ffffff;
+  --card: #fffefb;
   --muted: #eef1f4;
-  --muted-foreground: #667085;
+  --muted-foreground: #5f6b7a;
   --border: #d9dee7;
   --primary: #0f766e;
   --primary-foreground: #ffffff;
-  --accent: #f1b84b;
+  --gold: #e8b84a;
+  --gold-foreground: #3a2a08;
 }
 
 .dark {
@@ -23,7 +24,8 @@
   --border: #333946;
   --primary: #2dd4bf;
   --primary-foreground: #062a26;
-  --accent: #f3c767;
+  --gold: #f3c767;
+  --gold-foreground: #3a2a08;
 }
 
 * {
@@ -38,7 +40,27 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), "Source Sans 3", ui-sans-serif, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-heading), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.font-heading {
+  font-family: var(--font-heading), "Plus Jakarta Sans", ui-sans-serif, sans-serif;
+  letter-spacing: -0.02em;
+}
+
+.hero-wash {
+  background:
+    radial-gradient(980px 320px at 0% 0%, color-mix(in srgb, var(--primary) 22%, transparent), transparent 70%),
+    radial-gradient(720px 260px at 100% 8%, color-mix(in srgb, var(--gold) 20%, transparent), transparent 62%),
+    var(--card);
 }
 
 a {

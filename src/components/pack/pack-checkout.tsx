@@ -100,7 +100,7 @@ export function PackCheckout({ paymentsReady }: { paymentsReady: boolean }) {
         Email for the download link
         <Input name="email" type="email" autoComplete="email" required placeholder="you@business.in" />
       </label>
-      <Button type="submit" disabled={status === "working"}>
+      <Button type="submit" variant="accent" disabled={status === "working"}>
         {status === "working" ? "Opening checkout…" : `Pay ₹${GST_PACK.priceInr}`}
       </Button>
       {error ? <p className="text-sm text-red-600">{error}</p> : null}

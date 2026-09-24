@@ -12,7 +12,7 @@ export function Header() {
           <span className="grid h-9 w-9 place-items-center rounded-md bg-[var(--primary)] text-[var(--primary-foreground)]">
             <FileSpreadsheet size={20} />
           </span>
-          TemplateHub
+          <span className="font-heading">TemplateHub</span>
         </Link>
         <nav className="hidden items-center gap-6 text-sm font-medium text-[var(--muted-foreground)] md:flex">
           {NAV_LINKS.map((link) => (

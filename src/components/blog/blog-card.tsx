@@ -18,7 +18,7 @@ export function BlogCard({ post }: BlogCardProps) {
     <Card className="h-full transition hover:-translate-y-0.5 hover:shadow-md">
       <CardHeader>
         {post.category ? <Badge>{post.category.name}</Badge> : null}
-        <Link href={`/blog/${post.slug}`} className="block text-lg font-bold hover:text-[var(--primary)]">
+        <Link href={`/blog/${post.slug}`} className="font-heading block text-lg font-bold hover:text-[var(--primary)]">
           {post.title}
         </Link>
       </CardHeader>

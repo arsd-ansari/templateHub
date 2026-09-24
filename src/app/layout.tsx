@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Plus_Jakarta_Sans, Source_Sans_3 } from "next/font/google";
 import { Suspense } from "react";
 import { GoogleConsentScripts } from "@/components/consent/google-consent";
 import { Footer } from "@/components/layout/footer";
@@ -7,6 +8,20 @@ import { JsonLd } from "@/components/seo/json-ld";
 import { ADSENSE_CLIENT_ID, CONTACT_EMAIL, PINTEREST_VERIFICATION, SITE_AUTHOR, SITE_DESCRIPTION, SITE_NAME, SITE_URL } from "@/constants/site";
 import { ThemeProvider } from "@/providers/theme-provider";
 import "./globals.css";
+
+const headingFont = Plus_Jakarta_Sans({
+  subsets: ["latin"],
+  weight: ["500", "600", "700"],
+  variable: "--font-heading",
+  display: "swap"
+});
+
+const bodyFont = Source_Sans_3({
+  subsets: ["latin"],
+  weight: ["400", "600", "700"],
+  variable: "--font-body",
+  display: "swap"
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -54,7 +69,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className={`${headingFont.variable} ${bodyFont.variable}`}>
       <body>
         <ThemeProvider>
           <JsonLd

@@ -11,6 +11,7 @@ import { getLatestBlogPosts } from "@/services/blog-service";
 import { getTemplateBySlug, getTemplateCategories, getTemplates, getTopTemplates } from "@/services/template-service";
 import { PackHomeSection } from "@/components/pack/pack-cta";
 import { SITE_DESCRIPTION } from "@/constants/site";
+import { categoryTint } from "@/lib/category-tint";
 
 const HOME_FAQS = [
   {
@@ -76,7 +77,7 @@ export default async function HomePage() {
           }))
         }}
       />
-      <section className="border-b border-[var(--border)] bg-[var(--card)]">
+      <section className="hero-wash border-b border-[var(--border)]">
         <div className="container grid gap-10 py-14 lg:grid-cols-[1.2fr_0.8fr] lg:py-20">
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--muted)] px-3 py-1 text-sm text-[var(--muted-foreground)]">
@@ -184,8 +185,13 @@ export default async function HomePage() {
           <h2 className="text-2xl font-bold">Popular Categories</h2>
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {liveCategories.map((category) => (
-              <Link key={category.slug} href={`/categories/${category.slug}`} className="rounded-lg border border-[var(--border)] p-5 hover:bg-[var(--muted)]">
-                <div className="font-semibold">{category.name}</div>
+              <Link
+                key={category.slug}
+                href={`/categories/${category.slug}`}
+                className="rounded-lg border border-[var(--border)] bg-[var(--card)] p-5 hover:bg-[var(--muted)]"
+                style={{ borderLeftColor: categoryTint(category.slug), borderLeftWidth: 4 }}
+              >
+                <div className="font-heading font-semibold">{category.name}</div>
                 <p className="mt-2 text-sm leading-6 text-[var(--muted-foreground)]">{category.description}</p>
               </Link>
             ))}

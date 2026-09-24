@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { CheckCircle2, Download, FileSpreadsheet } from "lucide-react";
+import { CheckCircle2, Download } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { AdSlot } from "@/components/layout/ad-slot";
 import { PackCta } from "@/components/pack/pack-cta";
@@ -10,7 +10,9 @@ import { TemplateCard } from "@/components/templates/template-card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { SheetPreview } from "@/components/templates/sheet-preview";
 import { ADSENSE_SLOTS, SITE_URL } from "@/constants/site";
+import { categoryTint } from "@/lib/category-tint";
 import { formatNumber } from "@/lib/utils";
 import { getRelatedTemplates, getTemplateBySlug, getTemplateSlugs } from "@/services/template-service";
 import type { FaqItem } from "@/types";
@@ -109,7 +111,7 @@ export default async function TemplateDetailPage({ params }: { params: Promise<{
           <h1 className="mt-4 text-4xl font-bold leading-tight">{template.title}</h1>
           <p className="mt-4 max-w-3xl text-lg leading-8 text-[var(--muted-foreground)]">{template.description}</p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Button asChild size="lg">
+            <Button asChild size="lg" variant="accent">
               <Link href={`/api/download/${template.slug}`}><Download size={18} /> Download Free Template</Link>
             </Button>
             <Button asChild variant="outline" size="lg">
@@ -117,10 +119,8 @@ export default async function TemplateDetailPage({ params }: { params: Promise<{
             </Button>
           </div>
         </div>
-        <Card className="p-6">
-          <div className="grid aspect-video place-items-center rounded-lg bg-[var(--muted)] text-[var(--primary)]">
-            <FileSpreadsheet size={64} />
-          </div>
+        <Card className="p-6" style={{ borderTopColor: categoryTint(template.category?.slug), borderTopWidth: 4 }}>
+          <SheetPreview label={`${template.title}.xlsx`} tint={categoryTint(template.category?.slug)} />
           <div className="mt-5 grid gap-3 text-sm">
             <div className="flex justify-between"><span>Downloads</span><strong>{formatNumber(template.downloadCount)}</strong></div>
             <div className="flex justify-between"><span>Format</span><strong>XLSX</strong></div>
