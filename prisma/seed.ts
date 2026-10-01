@@ -196,9 +196,9 @@ async function main() {
     });
 
     const selfInvoiceData = {
-      title: "RCM Invoice Format in Excel — Self Invoice Under GST",
+      title: "RCM Invoice Format in Excel — RCM Bill Format (Self Invoice)",
       description:
-        "Free RCM invoice format in Excel and Google Sheets. Download this self invoice / RCM bill format for unregistered dealer purchases. Auto-calculates CGST, SGST, and totals.",
+        "Free RCM invoice format and RCM bill format in Excel. Self invoice for unregistered dealer purchases under GST. Auto-calculates CGST, SGST, and totals.",
       content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **RCM bill format** or an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
 
 Under Section 31(3)(f) of the CGST Act, a registered business that receives goods or services from an **unregistered supplier** (where GST is payable under Reverse Charge Mechanism) must issue a **self invoice** to itself.
@@ -260,9 +260,9 @@ For a regular tax invoice where the supplier is registered, use the [GST Invoice
       fileUrl: "/files/self-invoice-rcm-template.xlsx",
       thumbnailUrl: null,
       categoryId: gstCategory.id,
-      seoTitle: "RCM Invoice Format in Excel — Self Invoice Under GST (Free Download)",
+      seoTitle: "RCM Invoice Format & RCM Bill Format in Excel (Free)",
       seoDescription:
-        "Free RCM invoice format in Excel. Self invoice and RCM bill format for unregistered dealer invoice in Excel. Auto CGST and SGST. Free download.",
+        "Free RCM invoice format and RCM bill format in Excel. Self invoice for unregistered dealers under GST. Auto CGST and SGST. Download .xlsx — no signup.",
       features: [
         "Fully compliant with Section 31(3)(f) of the CGST Act",
         "Auto-calculates CGST, SGST, taxable value, and grand total",

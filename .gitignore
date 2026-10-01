@@ -5,6 +5,7 @@ node_modules
 dist
 coverage
 .venv-tools
+.venv-gsc
 .vercel
 .admin-credentials.txt
 public/uploads/*

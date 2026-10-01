@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const template = await getTemplateBySlug(slug);
   if (!template) return {};
   return {
-    title: template.seoTitle || template.title,
+    title: { absolute: template.seoTitle || template.title },
     description: template.seoDescription || template.description,
     alternates: { canonical: `/templates/${template.slug}` },
     openGraph: {
