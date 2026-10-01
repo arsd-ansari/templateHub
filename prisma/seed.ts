@@ -196,10 +196,10 @@ async function main() {
     });
 
     const selfInvoiceData = {
-      title: "RCM Invoice Format in Excel — RCM Bill Format (Self Invoice)",
+      title: "RCM Invoice Format in Excel — Self Invoice (Unregistered Supplier)",
       description:
-        "Free RCM invoice format and RCM bill format in Excel. Self invoice for unregistered dealer purchases under GST. Auto-calculates CGST, SGST, and totals.",
-      content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **RCM bill format** or an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
+        "Free RCM invoice format in Excel. Self invoice for unregistered dealer purchases under GST. Auto-calculates CGST, SGST, and totals.",
+      content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. If you are the registered supplier issuing the bill (a GTA that has not opted to charge GST itself is the usual case), use the [RCM bill format](/templates/rcm-bill-format) instead — that file keeps GST off the amount you collect. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
 
 Under Section 31(3)(f) of the CGST Act, a registered business that receives goods or services from an **unregistered supplier** (where GST is payable under Reverse Charge Mechanism) must issue a **self invoice** to itself.
 
@@ -256,13 +256,13 @@ Section 31(3)(g) makes the payment voucher mandatory whenever tax is payable und
 
 When you pay the supplier, raise the matching [RCM payment voucher](/templates/rcm-payment-voucher-template) — Section 31(3)(g) requires both documents.
 
-For a regular tax invoice where the supplier is registered, use the [GST Invoice Template](/templates/gst-invoice-template). For general (non-GST) invoicing, see the [Invoice Template](/templates/invoice-template). Step-by-step guide: [Self Invoice Format Under GST (RCM) in Excel](/blog/how-to-create-self-invoice-under-gst-rcm-in-excel).`,
+For a regular tax invoice where the supplier is registered and charges GST, use the [GST Invoice Template](/templates/gst-invoice-template). If that registered supplier must not collect the tax — the [RCM bill format](/templates/rcm-bill-format) is the document they issue, and you do not also self-invoice. For general (non-GST) invoicing, see the [Invoice Template](/templates/invoice-template). Step-by-step guide: [Self Invoice Format Under GST (RCM) in Excel](/blog/how-to-create-self-invoice-under-gst-rcm-in-excel).`,
       fileUrl: "/files/self-invoice-rcm-template.xlsx",
       thumbnailUrl: null,
       categoryId: gstCategory.id,
-      seoTitle: "RCM Invoice Format & RCM Bill Format in Excel (Free)",
+      seoTitle: "RCM Invoice Format in Excel — Self Invoice (Free)",
       seoDescription:
-        "Free RCM invoice format and RCM bill format in Excel. Self invoice for unregistered dealers under GST. Auto CGST and SGST. Download .xlsx — no signup.",
+        "Free RCM invoice format in Excel. Self invoice for unregistered dealers under GST. Auto CGST and SGST. Download .xlsx — no signup.",
       features: [
         "Fully compliant with Section 31(3)(f) of the CGST Act",
         "Auto-calculates CGST, SGST, taxable value, and grand total",
@@ -460,6 +460,111 @@ For the tax document raised at receipt, use the [RCM invoice format (self invoic
         faqs: paymentVoucherData.faqs
       },
       create: { slug: "rcm-payment-voucher-template", ...paymentVoucherData }
+    });
+
+    const rcmBillData = {
+      title: "RCM Bill Format in Excel",
+      description:
+        "Free RCM bill format in Excel for a registered supplier. GST is shown for the recipient and is not added to the amount you collect. Sample GTA freight of ₹18,500 at 5%.",
+      content: `This is a free **RCM bill format in Excel**. The registered supplier issues it when GST is payable by the recipient under reverse charge. It is the document a Goods Transport Agency uses when it has not opted to charge GST itself. Rule 46 of the CGST Rules requires the bill to state whether tax is payable on reverse charge. On this sheet that flag is already **Yes**.
+
+Do not use it as a [self invoice](/templates/self-invoice-rcm-template). A self invoice is issued by the recipient, and only when the supplier is not registered (Section 31(3)(f)). If the supplier has a GSTIN and issues this bill, the recipient does not raise a second tax invoice for the same supply.
+
+## What you collect, and what you do not
+
+The sample line is intra-state GTA freight, Mumbai to Pune, SAC **996511**:
+
+| | Amount |
+|---|---|
+| Taxable freight (paid to the GTA) | ₹18,500.00 |
+| CGST 2.5% | ₹462.50 |
+| SGST 2.5% | ₹462.50 |
+| GST the recipient pays the government | ₹925.00 |
+
+The amount payable to the supplier is **₹18,500**. The ₹925 is not added to the NEFT. The recipient pays that GST in cash from the electronic cash ledger and claims it as input tax credit in the same GSTR-3B, if the credit is not blocked.
+
+Type a different GST % if the supply is not GTA freight at 5%. The CGST and SGST columns each take half the rate you enter. For an inter-state supply, do not split: put IGST at the full rate on the taxable value and leave CGST and SGST unused. For GTA services to a registered recipient, place of supply is the recipient's location (Section 12(8) of the IGST Act), not the city the truck left from.
+
+## Who should issue this bill
+
+- A **registered GTA** that has not opted to pay GST on forward charge, billing a factory, a GST-registered business, a company, a partnership, a society, or a co-operative society.
+- Any other **registered supplier** of a notified reverse-charge service who must mention "tax is payable on reverse charge" and must not collect the tax.
+
+If the transporter has no GSTIN, this bill is the wrong file. The recipient issues the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template) within 30 days of receipt (Rule 47A) and a [payment voucher](/templates/rcm-payment-voucher-template) when they pay.
+
+## What each side reports
+
+- **Supplier:** report the bill in GSTR-1 as a B2B invoice attracting reverse charge (Table 4B). Do not include this GST as tax you collected.
+- **Recipient:** report the taxable value and tax in GSTR-3B Table 3.1(d). Pay it in cash. Claim eligible ITC in Table 4(A)(3). Section 31(3)(g) still requires a payment voucher when you pay the supplier — type their GSTIN on it.
+
+If the GTA's bill already charges GST and says reverse charge is No, they have opted for forward charge for that year. Pay the GST on their invoice. Do not also pay 5% under reverse charge.
+
+Guide: [How to create an RCM bill format under GST in Excel](/blog/how-to-create-rcm-bill-format-under-gst-in-excel).`,
+      fileUrl: "/files/rcm-bill-format.xlsx",
+      thumbnailUrl: null,
+      categoryId: gstCategory.id,
+      seoTitle: "RCM Bill Format in Excel — Free GST Download",
+      seoDescription:
+        "Free RCM bill format in Excel. Registered supplier bill where GST is payable by the recipient. Sample: ₹18,500 GTA freight, CGST ₹462.50 + SGST ₹462.50.",
+      features: [
+        "Reverse Charge pre-set to Yes, as Rule 46 requires on the bill",
+        "Amount payable to the supplier excludes GST",
+        "CGST and SGST calculate from the rate you type",
+        "Consignment note, vehicle number, origin, and destination",
+        "Worked GTA line: ₹18,500 at 5% = ₹462.50 + ₹462.50",
+        "Works in Excel, Google Sheets, and LibreOffice"
+      ],
+      instructions: [
+        "Download the file and open it in Excel, Google Sheets, or LibreOffice.",
+        "Fill in the supplier's legal name, address, GSTIN, and state. You are the issuer.",
+        "Assign a bill number in its own series, and enter the date, LR or consignment number, and vehicle number.",
+        "Fill in the recipient's GSTIN and state. Place of supply for GTA to a registered recipient is their state.",
+        "Enter description, SAC, quantity, rate, and GST %. Taxable value, CGST, and SGST fill in.",
+        "Collect only the 'Amount payable to supplier' total. Do not add the GST rows to the NEFT.",
+        "Sign the bill. The recipient pays the GST to the government and keeps this bill for GSTR-3B."
+      ],
+      faqs: [
+        {
+          question: "What is an RCM bill format under GST?",
+          answer:
+            "It is the bill a registered supplier issues when the recipient must pay the GST under reverse charge. The bill states that tax is payable on reverse charge (Rule 46). The supplier collects only the taxable value. The recipient pays CGST and SGST, or IGST, to the government."
+        },
+        {
+          question: "Is an RCM bill the same as a self invoice?",
+          answer:
+            "No. The supplier issues the RCM bill when the supplier is registered. The recipient issues a self invoice under Section 31(3)(f) only when the supplier is not registered. Do not create both for the same supply. The self invoice is a separate download."
+        },
+        {
+          question: "Should the GTA add 5% GST to the freight on this bill?",
+          answer:
+            "No. On a reverse-charge GTA bill the freight (for example ₹18,500) is what the transporter collects. CGST ₹462.50 and SGST ₹462.50 are the recipient's payment to the government, not part of the transporter's invoice total. Type a different rate in the GST % cell if your supply is not 5%."
+        },
+        {
+          question: "Who reports this bill in GSTR-1?",
+          answer:
+            "The supplier reports it in GSTR-1 Table 4B (B2B invoices attracting reverse charge) and does not treat the GST as tax collected. The recipient reports it in GSTR-3B Table 3.1(d), pays the tax in cash, and claims eligible ITC in Table 4(A)(3)."
+        },
+        {
+          question: "What if the transporter is not registered?",
+          answer:
+            "Do not use this bill. The recipient issues a self invoice and, when paying, a payment voucher. Both of those files are in the GST templates category."
+        }
+      ]
+    };
+    await prisma.template.upsert({
+      where: { slug: "rcm-bill-format" },
+      update: {
+        title: rcmBillData.title,
+        fileUrl: rcmBillData.fileUrl,
+        description: rcmBillData.description,
+        content: rcmBillData.content,
+        seoTitle: rcmBillData.seoTitle,
+        seoDescription: rcmBillData.seoDescription,
+        features: rcmBillData.features,
+        instructions: rcmBillData.instructions,
+        faqs: rcmBillData.faqs
+      },
+      create: { slug: "rcm-bill-format", ...rcmBillData }
     });
   }
 
@@ -2019,6 +2124,111 @@ PV-001, PV-002 for vouchers. SI-001, SI-002 for self invoices. Keep both away fr
         seoDescription: paymentVoucherPostData.seoDescription
       },
       create: { slug: "how-to-create-payment-voucher-under-gst-rcm-in-excel", ...paymentVoucherPostData }
+    });
+
+    const rcmBillPostContent = `Search results for "rcm bill format" and "rcm invoice format" are not the same document. An RCM bill is issued by a **registered supplier** when the recipient has to pay the GST. A self invoice is issued by the **recipient**, and only when the supplier has no GSTIN. This guide is the first one: how to fill an RCM bill in Excel, with a GTA freight example you can check by hand. Download the [RCM bill format](/templates/rcm-bill-format) and follow the cells.
+
+## When the supplier's bill is enough
+
+Section 31(3)(f) of the CGST Act tells the recipient to issue an invoice only for a reverse-charge supply received from a supplier who is **not registered**. Circular No. 211/5/2024-GST says the same thing: unregistered supplier, recipient issues the invoice, recipient pays the tax in cash.
+
+If the supplier is registered, they issue the tax invoice. Rule 46(p) says that invoice must state whether the tax is payable on reverse charge. For a pure reverse-charge supply they do not collect the tax. The recipient does not raise a second tax invoice on top.
+
+The usual file this describes is a Goods Transport Agency bill:
+
+- The GTA is registered.
+- The GTA has **not** opted to pay GST itself (forward charge) for the year.
+- The recipient is a notified person — a factory, a GST-registered business, a company, a partnership, a society, or a co-operative society.
+- The GTA issues a consignment note. Road transport with no consignment note is not a GTA service.
+
+If your transporter has no GSTIN, stop and use the [self invoice format under GST](/templates/self-invoice-rcm-template) instead. Rule 47A gives the recipient 30 days from receipt to issue that self invoice.
+
+## Worked example: Mumbai to Pune, ₹18,500
+
+Both cities are in Maharashtra. The recipient's GSTIN is also Maharashtra, so the place of supply is Maharashtra (Section 12(8) of the IGST Act — location of the registered recipient) and the tax splits.
+
+SAC on the line: **996511** (road transport of goods).
+
+| Cell | Value |
+|---|---|
+| Quantity | 1 |
+| Rate | 18,500 |
+| Taxable value | 18,500 |
+| GST rate | 5% |
+| CGST 2.5% | 462.50 |
+| SGST 2.5% | 462.50 |
+| Paid to the GTA | 18,500 |
+| Paid to the government by the recipient | 925 |
+
+Check the half-rate before you trust the sheet: 18,500 × 0.025 = 462.50, and 462.50 + 462.50 = 925. If a formula shows 925 in CGST alone, it used the full 5% instead of half.
+
+The NEFT to the transporter is ₹18,500. The ₹925 is a separate cash-ledger payment. Adding 5% on top of the freight and paying ₹19,425 to the GTA is the mistake this layout is built to prevent. The total labelled "Amount payable to supplier" is a SUM of the taxable column only.
+
+If the recipient's GSTIN were Gujarat, the same freight would be IGST at 5% (₹925), not a CGST/SGST split, even if the truck never left Maharashtra. Place of supply follows the recipient, not the highway.
+
+## What to type, in order
+
+1. **Supplier block.** Legal name, address, GSTIN, and state of the GTA. The GTA signs this bill.
+2. **Bill number.** Keep a series that is not your customer's sales INV- series and not their SI- self-invoice series. RCM-001 is fine.
+3. **LR / consignment note and vehicle number.** A GTA bill without the consignment note is how the service gets argued out of GTA treatment.
+4. **Recipient GSTIN and place of supply.** Copy the state from the GSTIN. Do not type the loading city here.
+5. **One line.** Description, SAC 996511, quantity, rate, GST %. Leave spare rows empty — the SUM ignores them.
+6. **Declaration.** "Tax is payable on reverse charge basis by the recipient." It is already on the sheet. Do not delete it to make the PDF shorter.
+7. **Amount in words** for the supplier total (₹18,500), then sign.
+
+## What each side files
+
+The GTA reports the bill in **GSTR-1 Table 4B** (B2B invoices attracting reverse charge). That GST is not output tax the GTA has collected, so it is not paid in the GTA's GSTR-3B as a forward-charge liability.
+
+The recipient reports taxable value and tax in **GSTR-3B Table 3.1(d)**, pays ₹925 in cash, and claims eligible ITC in **Table 4(A)(3)** of the same return. Input tax credit cannot be used to pay the reverse-charge liability itself.
+
+Section 31(3)(g) still requires the recipient to issue a payment voucher at the time of payment. The [RCM payment voucher](/templates/rcm-payment-voucher-template) was laid out for an unregistered payee, so type the GTA's GSTIN into that cell instead of leaving it blank.
+
+## When this bill is the wrong file
+
+- The transporter is unregistered. Use the self invoice.
+- The GTA has opted for forward charge and the bill already charges GST with reverse charge marked No. Pay that GST to the GTA. Do not also pay 5% under reverse charge.
+- You are a registered seller making a normal taxable sale. Use the [GST invoice template](/templates/gst-invoice-template). CGST and SGST on that file are added to the total the buyer pays you.
+- There is no consignment note. It is not a GTA service, and this bill's sample rate does not apply.
+
+The 5% on the sample is the reverse-charge rate for this kind of GTA freight. The GST % cell is editable. If a notification for your supply says a different rate, type that rate. Do not hard-code 2.5% into the formula — half of whatever you type is what keeps a 12% or 18% line correct if you reuse the sheet for a different notified service.
+
+## FAQ
+
+### Can the recipient also issue a self invoice for this freight?
+No. One tax document. The registered GTA's RCM bill is that document. A self invoice on top would double-count the supply in GSTR-3B.
+
+### Does the GTA need to be registered to issue this bill?
+Yes. This format is the supplier's tax invoice, so the supplier has a GSTIN. An unregistered transporter does not issue a Rule 46 tax invoice. The recipient self-invoices.
+
+### Where does the ₹925 go?
+To the government, from the recipient's electronic cash ledger. It does not go to the transporter, and it is not discharged by using old ITC.
+
+### Is the Excel bill valid?
+Yes, if the Rule 46 particulars are on it, including whether tax is payable on reverse charge. GST law does not require a particular software. Save a PDF before you send it so the formulas cannot be edited in transit.`;
+
+    const rcmBillPostData = {
+      title: "RCM Bill Format Under GST in Excel — When the Supplier Issues It",
+      excerpt:
+        "RCM bill format under GST: the registered supplier's bill, not a self invoice. GTA freight of ₹18,500 at 5% splits into CGST ₹462.50 and SGST ₹462.50, and that GST is not added to the freight.",
+      content: rcmBillPostContent,
+      featuredImage: null,
+      categoryId: guidesCategory.id,
+      seoTitle: "RCM Bill Format Under GST in Excel — Free Guide",
+      seoDescription:
+        "How to make an RCM bill format under GST in Excel. Supplier-issued, GST not collected. Worked GTA example: ₹18,500 freight, CGST ₹462.50 + SGST ₹462.50.",
+      published: true
+    };
+    await prisma.blogPost.upsert({
+      where: { slug: "how-to-create-rcm-bill-format-under-gst-in-excel" },
+      update: {
+        title: rcmBillPostData.title,
+        excerpt: rcmBillPostData.excerpt,
+        content: rcmBillPostData.content,
+        seoTitle: rcmBillPostData.seoTitle,
+        seoDescription: rcmBillPostData.seoDescription
+      },
+      create: { slug: "how-to-create-rcm-bill-format-under-gst-in-excel", ...rcmBillPostData }
     });
 
     const rentReceiptPostContent = `If you live in a rented house and receive House Rent Allowance (HRA) from your employer, rent receipts are the single most important document at tax time. They are what unlock the HRA exemption under Section 10(13A) of the Income Tax Act — and without them the entire HRA in your salary becomes taxable. Here is how to make a rent receipt in Excel that your employer and the income-tax department will accept.

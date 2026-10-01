@@ -27,10 +27,10 @@ export type CategoryContent = {
 export const CATEGORY_CONTENT: Record<string, CategoryContent> = {
   "gst-templates": {
     longDescription:
-      "Fully-compliant GST invoice, RCM invoice format (self invoice), RCM payment voucher, and Indian tax-compliance templates for Excel and Google Sheets — with CGST, SGST, IGST calculations built in.",
+      "GST invoice, RCM bill format (supplier does not collect GST), RCM self invoice for unregistered suppliers, and an RCM payment voucher — Excel and Google Sheets files with live CGST, SGST, and IGST formulas.",
     intro: [
       "Under Indian GST law, every registered business must issue invoices in a specific format — with your GSTIN, place of supply, HSN/SAC codes, and the correct CGST/SGST or IGST split. Get the format wrong and your customers can be denied Input Tax Credit; get it right and you stay audit-ready with no extra effort.",
-      "These GST templates give you compliant formats out of the box. Every field required by CGST Rule 46 is included, and the tax maths (CGST, SGST, IGST, totals) is done by live formulas — you enter the item, quantity, and rate and the invoice completes itself. Start with the GST Invoice Template for registered sales, the RCM invoice format (self invoice) when you buy from an unregistered supplier, and the RCM payment voucher on the day you pay. All templates work in Excel, Google Sheets, and LibreOffice."
+      "These GST templates give you compliant formats out of the box. Every field required by CGST Rule 46 is included, and the tax maths (CGST, SGST, IGST, totals) is done by live formulas — you enter the item, quantity, and rate and the invoice completes itself. Start with the GST Invoice Template for registered sales. Use the RCM bill format when a registered supplier (often a GTA) must not collect the tax. Use the RCM invoice format (self invoice) only when the supplier is unregistered, and the RCM payment voucher on the day you pay. All templates work in Excel, Google Sheets, and LibreOffice."
     ],
     whatToLookFor: [
       "Includes all fields mandated by CGST Rule 46 (GSTIN, invoice number, place of supply, HSN/SAC)",
@@ -59,7 +59,7 @@ export const CATEGORY_CONTENT: Record<string, CategoryContent> = {
       {
         question: "When do I need to raise a self invoice under GST?",
         answer:
-          "You must raise a self invoice whenever GST is payable under Reverse Charge Mechanism — typically for purchases from unregistered suppliers, GTA freight, advocate fees, director's remuneration, sponsorship services, or import of services. Use the free RCM invoice format (self invoice) in this category, then the RCM payment voucher when you pay."
+          "Raise a self invoice when you are the recipient, the supplier is not registered, and GST is payable by you under reverse charge (Section 31(3)(f)). Use the RCM invoice format for that. If the supplier is registered and issues the bill — a registered GTA that has not opted for forward charge is the common case — they use the RCM bill format, and you do not also self-invoice. Either way, raise a payment voucher when you pay."
       }
     ],
     relatedCategorySlugs: ["accounting-templates", "finance-templates", "payroll-templates"]

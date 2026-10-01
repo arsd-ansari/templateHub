@@ -52,16 +52,17 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const [featured, popular, categories, posts, gstInvoice, rcmInvoice, rcmVoucher] = await Promise.all([
+  const [featured, popular, categories, posts, gstInvoice, rcmInvoice, rcmBill, rcmVoucher] = await Promise.all([
     getTemplates({ pageSize: 6 }),
     getTopTemplates(5),
     getTemplateCategories(),
     getLatestBlogPosts(6),
     getTemplateBySlug("gst-invoice-template"),
     getTemplateBySlug("self-invoice-rcm-template"),
+    getTemplateBySlug("rcm-bill-format"),
     getTemplateBySlug("rcm-payment-voucher-template")
   ]);
-  const gstPicks = [gstInvoice, rcmInvoice, rcmVoucher].filter((item): item is NonNullable<typeof item> => Boolean(item));
+  const gstPicks = [gstInvoice, rcmBill, rcmInvoice, rcmVoucher].filter((item): item is NonNullable<typeof item> => Boolean(item));
   const liveCategories = categories.filter((category) => category._count.templates > 0);
 
   return (
@@ -97,6 +98,7 @@ export default async function HomePage() {
             </form>
             <div className="mt-4 flex flex-wrap gap-x-4 gap-y-2 text-sm">
               <Link href="/templates/gst-invoice-template" className="text-[var(--primary)] underline-offset-4 hover:underline">GST Invoice</Link>
+              <Link href="/templates/rcm-bill-format" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Bill Format</Link>
               <Link href="/templates/self-invoice-rcm-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Invoice Format</Link>
               <Link href="/templates/rcm-payment-voucher-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Payment Voucher</Link>
               <Link href="/categories/gst-templates" className="text-[var(--primary)] underline-offset-4 hover:underline">All GST templates</Link>
@@ -132,7 +134,7 @@ export default async function HomePage() {
             <div>
               <h2 className="text-2xl font-bold">GST Invoice Templates (India)</h2>
               <p className="mt-2 text-[var(--muted-foreground)]">
-                Tax invoice for registered sales, plus the RCM invoice format (self invoice) and payment voucher for Reverse Charge.
+                Tax invoice for registered sales, an RCM bill when the supplier must not collect GST, a self invoice for unregistered suppliers, and a payment voucher.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
@@ -141,7 +143,7 @@ export default async function HomePage() {
               </Button>
             </div>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {gstPicks.map((template) => <TemplateCard key={template.slug} template={template} />)}
           </div>
           <div className="mt-8">
