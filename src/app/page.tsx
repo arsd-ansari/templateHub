@@ -40,7 +40,7 @@ const HOME_FAQS = [
   },
   {
     question: "Do you have an RCM invoice format in Excel?",
-    answer: "Yes. Download the free RCM invoice format (self invoice under GST) for unregistered dealer purchases, GTA freight, and advocate fees. When you pay the supplier, use the matching RCM payment voucher. Both files auto-calculate CGST and SGST."
+    answer: "Yes. The RCM invoice format (self invoice under GST) is for purchases from an unregistered supplier. If the supplier is registered and must not collect GST, use the RCM tax invoice format (legal services sample) or the RCM bill format (GTA freight). When you pay, use the RCM payment voucher."
   }
 ];
 

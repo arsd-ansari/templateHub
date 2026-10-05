@@ -488,7 +488,7 @@ Type a different GST % if the supply is not GTA freight at 5%. The CGST and SGST
 ## Who should issue this bill
 
 - A **registered GTA** that has not opted to pay GST on forward charge, billing a factory, a GST-registered business, a company, a partnership, a society, or a co-operative society.
-- Any other **registered supplier** of a notified reverse-charge service who must mention "tax is payable on reverse charge" and must not collect the tax.
+- Any other **registered supplier** of a notified reverse-charge service who must mention "tax is payable on reverse charge" and must not collect the tax. A firm of advocates billing legal services should use the [RCM tax invoice format](/templates/rcm-tax-invoice-format) instead of this transport bill.
 
 If the transporter has no GSTIN, this bill is the wrong file. The recipient issues the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template) within 30 days of receipt (Rule 47A) and a [payment voucher](/templates/rcm-payment-voucher-template) when they pay.
 
@@ -565,6 +565,111 @@ Guide: [How to create an RCM bill format under GST in Excel](/blog/how-to-create
         faqs: rcmBillData.faqs
       },
       create: { slug: "rcm-bill-format", ...rcmBillData }
+    });
+
+    const rcmTaxInvoiceData = {
+      title: "RCM Tax Invoice Format in Excel",
+      description:
+        "Free RCM tax invoice format under GST in Excel. A registered supplier issues it and does not collect the tax. Sample: a firm of advocates bills ₹40,000, CGST ₹3,600 + SGST ₹3,600.",
+      content: `This is a free **RCM tax invoice format under GST** in Excel. A registered supplier issues it when the recipient has to pay the GST. Rule 46 requires the invoice to state whether tax is payable on reverse charge. On this sheet that flag is already **Yes**, and GST is not added to the amount the supplier collects.
+
+People also look for this file as a **GST RCM invoice format**, an **RCM GST invoice format**, or an **RCM invoice sample**. It is not the [self invoice](/templates/self-invoice-rcm-template). A self invoice is issued by the recipient, and only when the supplier is not registered (Section 31(3)(f)). It is also not the [RCM bill format](/templates/rcm-bill-format), which is the GTA layout: consignment note, vehicle number, and a 5% freight sample.
+
+## Worked sample: firm of advocates, ₹40,000
+
+Notification 13/2017-Central Tax (Rate) puts legal services supplied by a firm of advocates to a business entity on reverse charge. The sample line is intra-state, both parties in the same state, SAC **998212**:
+
+| | Amount |
+|---|---|
+| Taxable professional fee (paid to the firm) | ₹40,000.00 |
+| CGST 9% | ₹3,600.00 |
+| SGST 9% | ₹3,600.00 |
+| GST the recipient pays the government | ₹7,200.00 |
+
+The amount payable to the firm is **₹40,000**. The ₹7,200 is not added to the NEFT. The recipient pays that GST in cash from the electronic cash ledger.
+
+Set **Supply type** (cell H6) to **Inter** when the recipient's GSTIN is in another state. The same ₹40,000 then shows IGST ₹7,200, and CGST and SGST become 0. Place of supply for a service to a registered person is the recipient's location (Section 12(2) of the IGST Act).
+
+Type a different GST % if your notified supply is not legal services at 18%. Do not hard-code 9%. On an intra-state line, CGST and SGST are each half of the rate you type.
+
+## Who should issue this invoice
+
+- A **firm of advocates** billing legal services to a business entity that is not covered by the exemption in Notification 12/2017 (entry 45).
+- Another **registered supplier** of a notified reverse-charge service who must mention "tax is payable on reverse charge" and must not collect the tax, other than a GTA using the transport bill.
+
+Do not use it when the client is not a business entity, or when that business entity's turnover in the preceding financial year is still inside the limit that exempts it from GST registration. That legal service is exempt, so there is no reverse-charge tax to show. Do not use it when the supplier has no GSTIN. The recipient then issues the self invoice within 30 days of receipt (Rule 47A) and a [payment voucher](/templates/rcm-payment-voucher-template) when they pay.
+
+## What each side reports
+
+- **Supplier:** report the invoice in GSTR-1 as a B2B invoice attracting reverse charge (Table 4B). Do not include this GST as tax you collected.
+- **Recipient:** report the taxable value and tax in GSTR-3B Table 3.1(d). Pay it in cash. Claim eligible ITC in Table 4(A)(3) if the credit is not blocked. Section 31(3)(g) still requires a payment voucher when you pay the firm.
+
+Guide: [How to create an RCM tax invoice format under GST in Excel](/blog/how-to-create-rcm-tax-invoice-format-under-gst-in-excel).`,
+      fileUrl: "/files/rcm-tax-invoice-format.xlsx",
+      thumbnailUrl: null,
+      categoryId: gstCategory.id,
+      seoTitle: "RCM Tax Invoice Format in Excel — Free Download",
+      seoDescription:
+        "Free RCM tax invoice format under GST in Excel. The supplier does not collect GST. Sample: advocate firm fee ₹40,000, CGST ₹3,600 + SGST ₹3,600.",
+      features: [
+        "Reverse Charge pre-set to Yes, as Rule 46 requires on the tax invoice",
+        "Supply type switch: Intra splits CGST and SGST, Inter charges IGST",
+        "Amount payable to the supplier excludes GST",
+        "Worked line: ₹40,000 at 18% = CGST ₹3,600 + SGST ₹3,600",
+        "SAC 998212 sample for legal services by a firm of advocates",
+        "Works in Excel, Google Sheets, and LibreOffice"
+      ],
+      instructions: [
+        "Download the file and open it in Excel, Google Sheets, or LibreOffice.",
+        "Fill in the supplier's legal name, address, GSTIN, and state. You are the issuer, and you must be registered.",
+        "Assign an invoice number in its own series (16 characters or fewer) and enter the invoice date.",
+        "Set Supply type to Intra if the recipient's state matches yours, or Inter if it does not. Place of supply for a service to a registered person is their state.",
+        "Fill in the recipient's GSTIN. Enter description, SAC, quantity, rate, and GST %. Taxable value and the tax columns fill in.",
+        "Collect only the 'Amount payable to supplier' total. Do not add CGST, SGST, or IGST to the NEFT.",
+        "Sign the invoice. The recipient pays the GST to the government and keeps this invoice for GSTR-3B."
+      ],
+      faqs: [
+        {
+          question: "What is an RCM tax invoice format under GST?",
+          answer:
+            "It is the tax invoice a registered supplier issues when the recipient must pay the GST under reverse charge. Rule 46 requires it to state that tax is payable on reverse charge. The supplier collects only the taxable value. The recipient pays CGST and SGST, or IGST, to the government."
+        },
+        {
+          question: "Is this the same as a self invoice or an RCM bill?",
+          answer:
+            "No. The supplier issues this tax invoice when the supplier is registered. The recipient issues a self invoice under Section 31(3)(f) only when the supplier is not registered. The RCM bill format on this site is the GTA transport layout, with a consignment note and a 5% freight sample. Do not create both a self invoice and this tax invoice for the same supply."
+        },
+        {
+          question: "Should the advocate firm add 18% GST to the fee?",
+          answer:
+            "No. On this reverse-charge invoice the professional fee (for example ₹40,000) is what the firm collects. CGST ₹3,600 and SGST ₹3,600 are the recipient's payment to the government, not part of the firm's total. For an inter-state recipient, set Supply type to Inter. The sheet then shows IGST ₹7,200 and leaves CGST and SGST at zero."
+        },
+        {
+          question: "Who reports an RCM tax invoice in GSTR-1?",
+          answer:
+            "The supplier reports it in GSTR-1 Table 4B (B2B invoices attracting reverse charge) and does not treat the GST as tax collected. The recipient reports it in GSTR-3B Table 3.1(d), pays the tax in cash, and claims eligible ITC in Table 4(A)(3)."
+        },
+        {
+          question: "When is legal services reverse charge the wrong treatment?",
+          answer:
+            "Notification 12/2017 (entry 45) exempts legal services to a person who is not a business entity, and to a business entity whose turnover in the preceding financial year is within the GST registration exemption limit. Do not show reverse-charge GST on an exempt supply. If the advocate or firm has no GSTIN, use a self invoice instead of this file."
+        }
+      ]
+    };
+    await prisma.template.upsert({
+      where: { slug: "rcm-tax-invoice-format" },
+      update: {
+        title: rcmTaxInvoiceData.title,
+        fileUrl: rcmTaxInvoiceData.fileUrl,
+        description: rcmTaxInvoiceData.description,
+        content: rcmTaxInvoiceData.content,
+        seoTitle: rcmTaxInvoiceData.seoTitle,
+        seoDescription: rcmTaxInvoiceData.seoDescription,
+        features: rcmTaxInvoiceData.features,
+        instructions: rcmTaxInvoiceData.instructions,
+        faqs: rcmTaxInvoiceData.faqs
+      },
+      create: { slug: "rcm-tax-invoice-format", ...rcmTaxInvoiceData }
     });
   }
 
@@ -2126,7 +2231,7 @@ PV-001, PV-002 for vouchers. SI-001, SI-002 for self invoices. Keep both away fr
       create: { slug: "how-to-create-payment-voucher-under-gst-rcm-in-excel", ...paymentVoucherPostData }
     });
 
-    const rcmBillPostContent = `Search results for "rcm bill format" and "rcm invoice format" are not the same document. An RCM bill is issued by a **registered supplier** when the recipient has to pay the GST. A self invoice is issued by the **recipient**, and only when the supplier has no GSTIN. This guide is the first one: how to fill an RCM bill in Excel, with a GTA freight example you can check by hand. Download the [RCM bill format](/templates/rcm-bill-format) and follow the cells.
+    const rcmBillPostContent = `Search results for "rcm bill format" and "rcm tax invoice format" are easy to mix up. This guide is the Goods Transport Agency layout: consignment note, vehicle number, and 5% freight. The general Rule 46 tax invoice — a [RCM tax invoice format](/templates/rcm-tax-invoice-format), with a firm-of-advocates sample at 18% — is a separate file. A self invoice is issued by the **recipient**, and only when the supplier has no GSTIN. Download the [RCM bill format](/templates/rcm-bill-format) and follow the cells.
 
 ## When the supplier's bill is enough
 
@@ -2229,6 +2334,116 @@ Yes, if the Rule 46 particulars are on it, including whether tax is payable on r
         seoDescription: rcmBillPostData.seoDescription
       },
       create: { slug: "how-to-create-rcm-bill-format-under-gst-in-excel", ...rcmBillPostData }
+    });
+
+    const rcmTaxInvoicePostContent = `An **RCM tax invoice format under GST** is the tax invoice a registered supplier issues when the recipient pays the GST. It is not a self invoice, and it is not the GTA consignment bill. This guide fills one in Excel, with a firm-of-advocates sample you can check by hand: fee ₹40,000, CGST ₹3,600, SGST ₹3,600, and ₹40,000 collected. Download the [RCM tax invoice format](/templates/rcm-tax-invoice-format) and follow the cells.
+
+## Which document you actually need
+
+Three reverse-charge files get mixed up because the searches overlap.
+
+- **This tax invoice.** The supplier is registered and the supply is notified for reverse charge. The supplier issues it. Rule 46 says it must state whether tax is payable on reverse charge. The supplier does not collect the tax.
+- **[Self invoice](/templates/self-invoice-rcm-template).** The supplier is not registered. Section 31(3)(f) tells the recipient to issue the invoice. Rule 47A gives 30 days from receipt. Do not also issue this tax invoice.
+- **[RCM bill format](/templates/rcm-bill-format).** Same legal idea as this invoice, laid out for a Goods Transport Agency: consignment note, vehicle number, SAC 996511, and a 5% freight sample of ₹18,500. Use that file for GTA. Use this one for other notified services.
+
+Notification 13/2017-Central Tax (Rate) is the services list. One entry is legal services supplied by a firm of advocates to a business entity in the taxable territory. The business entity pays the GST. The sample on the sheet is that case.
+
+Notification 12/2017 (entry 45) exempts legal services to someone who is not a business entity, and to a business entity whose turnover in the preceding financial year is still inside the GST registration exemption limit. An exempt supply does not go on this invoice. There is no reverse-charge tax to calculate.
+
+## Worked example: ₹40,000, same state
+
+Both the firm and the client are in Maharashtra, so the place of supply is Maharashtra (Section 12(2) of the IGST Act — location of the registered recipient) and the tax splits.
+
+SAC on the line: **998212** (legal advisory and representation services concerning fields of law other than criminal law). Legal services under heading 9982 are taxed at 18%.
+
+| Cell | Value |
+|---|---|
+| Quantity | 1 |
+| Rate | 40,000 |
+| Taxable value | 40,000 |
+| GST rate | 18% |
+| Supply type | Intra |
+| CGST 9% | 3,600 |
+| SGST 9% | 3,600 |
+| IGST | 0 |
+| Paid to the firm | 40,000 |
+| Paid to the government by the recipient | 7,200 |
+
+Check the half-rate before you trust the sheet: 40,000 × 0.09 = 3,600, and 3,600 + 3,600 = 7,200. If CGST alone shows 7,200, the formula used the full 18% instead of half.
+
+The NEFT to the firm is ₹40,000. The ₹7,200 is a separate cash-ledger payment. Adding 18% and paying ₹47,200 to the firm is the mistake this layout is built to prevent. The total labelled "Amount payable to supplier" is a SUM of the taxable column only.
+
+If the client's GSTIN were Karnataka, set Supply type to **Inter**. The same fee becomes IGST at 18% (₹7,200). CGST and SGST become 0, even if the advocates sit in Mumbai. Place of supply follows the registered recipient, not the firm's office.
+
+## What to type, in order
+
+1. **Supplier block.** Legal name, address, GSTIN, and state of the firm. The firm signs this invoice.
+2. **Invoice number.** Unique for the financial year, not more than 16 characters. Keep it off the client's sales INV- series and off their SI- self-invoice series. RCM-INV-001 is fine.
+3. **Invoice date.** The date the firm issues the invoice.
+4. **Supply type.** Intra or Inter. That one cell (H6) decides whether the row splits the rate or charges IGST. Do not edit the tax formulas.
+5. **Recipient GSTIN and place of supply.** Copy the state from the GSTIN.
+6. **One line.** Description, SAC 998212, quantity, rate, GST %. Leave spare rows empty. The SUM ignores them.
+7. **Declaration.** "Tax is payable on reverse charge basis by the recipient." It is already on the sheet. Do not delete it to shorten the PDF.
+8. **Amount in words** for the supplier total (₹40,000), then sign. Save a PDF before you send it so the formulas cannot be edited in transit.
+
+## What each side files
+
+The firm reports the invoice in **GSTR-1 Table 4B** (B2B invoices attracting reverse charge). That GST is not output tax the firm collected, so the firm does not pay it in GSTR-3B as a forward-charge liability.
+
+The recipient reports taxable value and tax in **GSTR-3B Table 3.1(d)**, pays ₹7,200 in cash, and claims eligible ITC in **Table 4(A)(3)** of the same return if the credit is not blocked. Input tax credit cannot be used to pay the reverse-charge liability itself.
+
+The time of supply for a reverse-charge service is the earlier of the date of payment and the day after 60 days from the invoice date (Section 13(3)). Paying the firm in the same month as the invoice keeps the tax in that month's GSTR-3B.
+
+Section 31(3)(g) still requires the recipient to issue a payment voucher at the time of payment. The [RCM payment voucher](/templates/rcm-payment-voucher-template) was laid out for an unregistered payee, so type the firm's GSTIN into that cell.
+
+## When this invoice is the wrong file
+
+- The advocate or firm has no GSTIN. Use the self invoice.
+- The recipient is an individual, or a business still inside the registration exemption. The legal service is exempt. Do not show 18%.
+- The supply is GTA freight. Use the RCM bill, and do not copy this 18% sample onto a transport line.
+- You are a registered seller making a normal taxable sale. Use the [GST invoice template](/templates/gst-invoice-template). On that file the buyer pays you the tax.
+
+The 18% on the sample is the rate for this kind of legal service. The GST % cell is editable. If a notification for your supply says a different rate, type that rate. Half of whatever you type is what keeps a 5% or 12% intra-state line correct.
+
+## FAQ
+
+### Can the client also issue a self invoice for these legal fees?
+No. One tax document. The firm's RCM tax invoice is that document, because the firm is registered. A self invoice on top would double-count the supply in GSTR-3B.
+
+### Does the firm need its own GSTIN to issue this invoice?
+Yes. This is the supplier's tax invoice. An unregistered advocate does not issue a Rule 46 tax invoice. The business that received the service self-invoices, if the supply is taxable.
+
+### Where does the ₹7,200 go?
+To the government, from the recipient's electronic cash ledger. It does not go to the firm, and it is not discharged by using old ITC.
+
+### Is an Excel RCM tax invoice valid?
+Yes, if the Rule 46 particulars are on it, including whether tax is payable on reverse charge. GST law does not require a particular software.
+
+### What if I only wanted an RCM invoice sample to copy?
+The filled line is the sample: SAC 998212, ₹40,000, 18%, intra-state split of ₹3,600 and ₹3,600, supplier total ₹40,000. Change the names and the fee. Leave the tax formulas alone.`;
+
+    const rcmTaxInvoicePostData = {
+      title: "How to Create an RCM Tax Invoice Format Under GST in Excel",
+      excerpt:
+        "RCM tax invoice format under GST: the registered supplier's invoice, not a self invoice. A firm of advocates bills ₹40,000 at 18%, which splits into CGST ₹3,600 and SGST ₹3,600, and that GST is not added to the fee.",
+      content: rcmTaxInvoicePostContent,
+      featuredImage: null,
+      categoryId: guidesCategory.id,
+      seoTitle: "RCM Tax Invoice Format Under GST in Excel — Free Guide",
+      seoDescription:
+        "How to make an RCM tax invoice format under GST in Excel. Supplier-issued, GST not collected. Worked example: ₹40,000 legal fee, CGST ₹3,600 + SGST ₹3,600.",
+      published: true
+    };
+    await prisma.blogPost.upsert({
+      where: { slug: "how-to-create-rcm-tax-invoice-format-under-gst-in-excel" },
+      update: {
+        title: rcmTaxInvoicePostData.title,
+        excerpt: rcmTaxInvoicePostData.excerpt,
+        content: rcmTaxInvoicePostData.content,
+        seoTitle: rcmTaxInvoicePostData.seoTitle,
+        seoDescription: rcmTaxInvoicePostData.seoDescription
+      },
+      create: { slug: "how-to-create-rcm-tax-invoice-format-under-gst-in-excel", ...rcmTaxInvoicePostData }
     });
 
     const rentReceiptPostContent = `If you live in a rented house and receive House Rent Allowance (HRA) from your employer, rent receipts are the single most important document at tax time. They are what unlock the HRA exemption under Section 10(13A) of the Income Tax Act — and without them the entire HRA in your salary becomes taxable. Here is how to make a rent receipt in Excel that your employer and the income-tax department will accept.
