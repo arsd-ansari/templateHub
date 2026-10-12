@@ -148,7 +148,7 @@ async function main() {
       description:
         "A free, ready-to-use GST tax invoice template for Excel and Google Sheets. CGST and SGST are calculated automatically — just enter quantity, rate, and GST rate. Includes every field required by Indian GST law.",
       content:
-        "A GST invoice is the document a registered business issues for a taxable sale in India — and under GST law it must contain specific details, or your buyer can be denied input tax credit. This template gives you a compliant format that does the tax maths for you. It is built for intra-state sales, where GST splits into CGST and SGST at half the rate each (an 18% item carries 9% + 9%). Enter the quantity, rate, and GST rate for each item, and the sheet calculates the taxable value, both taxes, and the grand total automatically. For inter-state sales you would instead charge a single IGST at the full rate. If you received goods or services from an **unregistered supplier** and GST is payable under Reverse Charge, do not use this tax invoice — download the [self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template) instead.",
+        "A GST invoice is the document a registered business issues for a taxable sale in India — and under GST law it must contain specific details, or your buyer can be denied input tax credit. This template gives you a compliant format that does the tax maths for you. It is built for intra-state sales, where GST splits into CGST and SGST at half the rate each (an 18% item carries 9% + 9%). Enter the quantity, rate, and GST rate for each item, and the sheet calculates the taxable value, both taxes, and the grand total automatically. For inter-state sales you would instead charge a single IGST at the full rate. If you received goods or services from an **unregistered supplier** and GST is payable under Reverse Charge, do not use this tax invoice — download the [self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template) instead. Sending goods as free samples, with no consideration, is not this tax invoice either. Use the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst): it is a Rule 55 delivery challan, and GST is not charged.",
       fileUrl: "/files/gst-invoice-template.xlsx",
       thumbnailUrl: null,
       categoryId: gstCategory.id,
@@ -180,6 +180,11 @@ async function main() {
           question: "What if the supplier is unregistered?",
           answer:
             "If GST is payable by you under Reverse Charge, you must issue a self invoice — not a regular GST tax invoice. Download the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template), then the [RCM payment voucher](/templates/rcm-payment-voucher-template) when you pay."
+        },
+        {
+          question: "Can I use this as an invoice for free samples under GST?",
+          answer:
+            "No. Samples sent free of cost, without consideration, are not a supply, except where Schedule I applies (CBIC Circular No. 92/11/2019-GST). Move them on a delivery challan under Rule 55, not on this tax invoice. Download the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst)."
         }
       ]
     };
@@ -670,6 +675,123 @@ Guide: [How to create an RCM tax invoice format under GST in Excel](/blog/how-to
         faqs: rcmTaxInvoiceData.faqs
       },
       create: { slug: "rcm-tax-invoice-format", ...rcmTaxInvoiceData }
+    });
+
+    const freeSampleData = {
+      title: "Invoice for Free Sample under GST — Delivery Challan",
+      description:
+        "Free invoice for free sample under GST in Excel. It is a Rule 55 delivery challan for goods sent without consideration. Sample value ₹5,790. GST is not charged.",
+      content: `This is a free **invoice for free sample under GST** in Excel. The file is a delivery challan, not a tax invoice. CBIC Circular No. 92/11/2019-GST says samples supplied free of cost, without consideration, are not a supply, except where Schedule I of the CGST Act applies. You do not charge GST, and the consignee does not pay you. Rule 55 of the CGST Rules is the document for moving those goods.
+
+People also search the plural, **invoice for free samples under GST**. Same file. It is not the [GST invoice template](/templates/gst-invoice-template). That tax invoice is for a taxable sale, and it adds CGST and SGST to the total the buyer pays. It is also not an [RCM invoice](/templates/self-invoice-rcm-template). Reverse charge is a different supply, where someone does pay GST to the government.
+
+## Worked sample: ₹5,790 of personal-care goods
+
+The sheet is filled with three lines a manufacturer might send a shop before any order. Nothing is sold. HSN headings: **3305** shampoo, **3304** skin cream, **3401** soap.
+
+| Goods | Qty | Value / unit | Value |
+|---|---|---|---|
+| Herbal shampoo, 50 ml | 30 | ₹85 | ₹2,550 |
+| Moisturising cream, 20 g | 40 | ₹60 | ₹2,400 |
+| Bathing bar, 75 g | 24 | ₹35 | ₹840 |
+| Value of goods | | | **₹5,790** |
+
+Check the first line by hand: 30 × 85 = 2,550. The total is 2,550 + 2,400 + 840 = 5,790. There is no GST column. ₹5,790 is the value Rule 55 asks you to write on the challan. It is not a price. The consignee pays ₹0.
+
+The e-way bill cell reads that total. ₹5,790 is under the general limit of ₹50,000, so the cell says **Not required**. Raise a quantity until the total crosses ₹50,000 and the cell changes to **Required**. Some states set a different limit for movement inside the state. The sheet only knows the general limit.
+
+Set **Movement** (cell G6) to **Inter** when the consignee is in another state. The place-of-supply reminder then says to fill cell G7. Rule 55(1)(viii) asks for place of supply only on an inter-state movement. For **Intra**, that cell says place of supply is not required.
+
+## What you type
+
+- Consigner legal name, address, GSTIN, and state. You are registered, and you sign the challan.
+- Challan number, 16 characters or fewer, in its own series. DC-FS-001 is the sample. Do not reuse your tax-invoice series.
+- Consignee name and address. GSTIN only if they have one. A shop or a doctor with no GSTIN is "Unregistered".
+- Description, HSN, quantity, unit, and value per unit. Leave spare rows empty. The total ignores them.
+- Vehicle number and transporter when the goods leave with a carrier.
+
+Type the HSN length your turnover requires. The sample uses the four-digit heading. Rewrite the amount in words if you change the quantities. The sample words match ₹5,790.
+
+Keep three copies: original for the consignee, duplicate for the transporter, triplicate for the consigner. Rule 55(2) spells out those three markings when the challan covers a supply of goods. Free samples are not a supply, and the same three copies are still what the driver and the consignee need.
+
+## What you do not do
+
+Do not add GST "so the format looks complete". Rule 55 asks for tax rate and tax amount only where the transportation is for supply to the consignee. A free sample is not that.
+
+Do not claim input tax credit on these goods. Section 17(5)(h) blocks credit on goods disposed of by way of gift or free samples. Reverse whatever you already claimed. Circular 92 says the opposite when Schedule I makes the distribution a supply: GST is payable, and credit is then allowed. Those cases do not belong on this challan.
+
+Use a tax invoice, not this file, when:
+
+- The recipient is a **related person**, or a **distinct person** (your own branch with a different GSTIN). Schedule I treats that as a supply even with no consideration.
+- The goods are a **gift to an employee** and the gifts to that employee in the financial year go above ₹50,000. Gifts within ₹50,000 are not a supply. Gifts above that are.
+- You charge any price, even a token price. Consideration makes it a supply. Use the [GST invoice template](/templates/gst-invoice-template).
+
+Guide: [How to create an invoice for free sample under GST in Excel](/blog/how-to-create-invoice-for-free-sample-under-gst-in-excel).`,
+      fileUrl: "/files/invoice-for-free-sample-under-gst.xlsx",
+      thumbnailUrl: null,
+      categoryId: gstCategory.id,
+      seoTitle: "Invoice for Free Sample under GST | Excel",
+      seoDescription:
+        "Free Excel invoice for free samples under GST. Rule 55 delivery challan, not a tax invoice. Sample goods ₹5,790. No GST charged.",
+      features: [
+        "Delivery challan under Rule 55, titled for the free-sample search",
+        "No GST column — tax is not charged on a free sample",
+        "Value = quantity × value per unit, totalled for the challan",
+        "Movement switch: Intra or Inter, with a place-of-supply reminder",
+        "E-way bill cell flips when the value crosses ₹50,000",
+        "Worked lines: shampoo ₹2,550, cream ₹2,400, soap ₹840"
+      ],
+      instructions: [
+        "Download the file and open it in Excel, Google Sheets, or LibreOffice.",
+        "Fill in the consigner's legal name, address, GSTIN, and state. You sign this challan.",
+        "Give the challan its own number, 16 characters or fewer, and enter the date.",
+        "Set Movement to Intra if the consignee is in your state, or Inter if not. For Inter, type the place of supply in G7.",
+        "Fill in the consignee. Write Unregistered if they have no GSTIN.",
+        "Enter description, HSN, quantity, unit, and value per unit. The value column and the total fill in. Do not add GST.",
+        "Read the e-way bill cell. Print three copies, mark which copy it is, and sign."
+      ],
+      faqs: [
+        {
+          question: "Is an invoice for free samples under GST a tax invoice?",
+          answer:
+            "No. Samples sent free of cost, without consideration, are not a supply under section 7, except where Schedule I applies. CBIC Circular No. 92/11/2019-GST says so. The document for the movement is a delivery challan under Rule 55. This file is that challan. GST is not charged, and the consignee pays nothing."
+        },
+        {
+          question: "Why does the challan still show a value if nobody pays it?",
+          answer:
+            "Rule 55 requires a taxable value on the challan. On a free sample that figure is the value of the goods (here ₹5,790), so the document and any e-way bill have a value. It is not a price. Do not collect it, and do not calculate GST on it."
+        },
+        {
+          question: "Do I need an e-way bill for free samples?",
+          answer:
+            "Rule 138 applies when goods move on a delivery challan. The general limit is ₹50,000. The sample total of ₹5,790 is under that limit, so the sheet says Not required. If your total goes over ₹50,000, the cell says Required. Check the intra-state limit in the state the goods move through. It can differ."
+        },
+        {
+          question: "Can I claim input tax credit on goods I give as free samples?",
+          answer:
+            "No. Section 17(5)(h) blocks input tax credit on goods disposed of by way of gift or free samples. Reverse credit you already claimed. If Schedule I makes the distribution a supply, the treatment flips: you pay GST on a tax invoice, and Circular 92 says credit is then available. Do not use this challan for that case."
+        },
+        {
+          question: "What if the samples go to my own branch in another state?",
+          answer:
+            "A branch with a different GSTIN is a distinct person. Schedule I treats a supply between distinct persons as a supply even without consideration. Issue a tax invoice and pay GST. This free-sample challan is the wrong file. Movement between godowns under the same GSTIN is a different delivery challan, and it is not a free sample either."
+        }
+      ]
+    };
+    await prisma.template.upsert({
+      where: { slug: "invoice-for-free-sample-under-gst" },
+      update: {
+        title: freeSampleData.title,
+        fileUrl: freeSampleData.fileUrl,
+        description: freeSampleData.description,
+        content: freeSampleData.content,
+        seoTitle: freeSampleData.seoTitle,
+        seoDescription: freeSampleData.seoDescription,
+        features: freeSampleData.features,
+        instructions: freeSampleData.instructions,
+        faqs: freeSampleData.faqs
+      },
+      create: { slug: "invoice-for-free-sample-under-gst", ...freeSampleData }
     });
   }
 
@@ -2444,6 +2566,98 @@ The filled line is the sample: SAC 998212, ₹40,000, 18%, intra-state split of 
         seoDescription: rcmTaxInvoicePostData.seoDescription
       },
       create: { slug: "how-to-create-rcm-tax-invoice-format-under-gst-in-excel", ...rcmTaxInvoicePostData }
+    });
+
+    const freeSamplePostContent = `An **invoice for free sample under GST** is not a tax invoice. It is the delivery challan you send with goods that the other person does not pay for. This guide fills one in Excel and checks the arithmetic: shampoo ₹2,550, cream ₹2,400, soap ₹840, total ₹5,790, GST nil. Download the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst) and follow the cells.
+
+The same search in the plural — **invoice for free samples under GST** — is this document. One challan covers the consignment.
+
+## Why it is not a tax invoice
+
+Section 7 of the CGST Act taxes a supply made for a consideration. A free sample has no consideration. CBIC Circular No. 92/11/2019-GST (7 March 2019) says samples supplied free of cost do not qualify as a supply, except where Schedule I applies. No output tax. The circular's own example is a drug sample given to a stockist, a dealer, or a doctor. The Excel sample uses shampoo, cream, and soap so the sheet is not a drug label. The GST point is the same.
+
+Rule 55 of the CGST Rules lets you move goods for reasons other than supply on a delivery challan, in lieu of an invoice. The challan needs a date and a number (16 characters or fewer), the consigner's name, address, and GSTIN, the consignee's name and address (and GSTIN only if they have one), HSN and description, quantity, value, and a signature. Place of supply goes on it only for an inter-state movement. Tax rate and tax amount go on it only where the transportation is for a supply to the consignee. A free sample is not that, so this sheet has no GST columns.
+
+The [GST invoice template](/templates/gst-invoice-template) is the wrong download. It adds CGST and SGST and asks the buyer to pay the total. Putting free samples on that invoice tells the department you made a taxable sale.
+
+## Worked example: ₹5,790, nothing collected
+
+| Line | HSN | Qty | Value / unit | Value |
+|---|---|---|---|---|
+| Herbal shampoo, 50 ml | 3305 | 30 | 85 | 2,550 |
+| Moisturising cream, 20 g | 3304 | 40 | 60 | 2,400 |
+| Bathing bar, 75 g | 3401 | 24 | 35 | 840 |
+| Value of goods | | | | 5,790 |
+| GST | | | | none |
+| Amount the consignee pays | | | | 0 |
+
+30 × 85 = 2,550. If that cell shows 255, the rate was typed as 8.5 instead of 85. The total cell is a SUM of the value column. Empty spare rows stay out of the sum because the row formula returns a blank when quantity or rate is empty.
+
+₹5,790 is under ₹50,000, so the e-way bill cell says **Not required**. That is the general limit in Rule 138 for goods moving on a delivery challan. It is not a promise about every state. Intra-state limits differ. If you change the shampoo quantity to 600, the value becomes 600 × 85 = 51,000 on that line alone, and the cell says **Required**.
+
+Movement is **Intra** on the sample, so place of supply stays blank. Type **Inter** in G6 when the consignee's state is different, then fill G7 with that state and its code. Rule 55(1)(viii) is the reason that one cell exists.
+
+## What to type, in order
+
+1. **Consigner.** Your legal name, address, GSTIN, and state. You are the person removing the goods.
+2. **Challan number and date.** A series of your own, not the sales INV- series. Sixteen characters is the cap in Rule 55.
+3. **Movement.** Intra or Inter. Do not edit the formula that reads G6.
+4. **Consignee.** Name and address. GSTIN, or the word Unregistered. A doctor or a shopkeeper often has no GSTIN. That does not turn the sample into a sale.
+5. **Transport.** Vehicle number and transporter when someone else carries the goods.
+6. **Lines.** Description, HSN, quantity, unit, value per unit. Use the HSN length your turnover requires. The sample is the four-digit heading.
+7. **Value in words.** The printed words match ₹5,790. Change them when the total changes. Excel will not write the words for you.
+8. **Copies.** Original for the consignee, duplicate for the transporter, triplicate for you. Mark which one you are printing. Sign it. Save a PDF if you email it, so the formulas cannot be edited in transit.
+
+## Input tax credit
+
+Section 17(5)(h) says input tax credit is not available on goods disposed of by way of gift or free samples. If you already claimed credit on the shampoo, the cream, or the soap, reverse it. Circular 92 is explicit: credit is not available on inputs, input services, and capital goods to the extent they are used for gifts or free samples distributed without consideration.
+
+The circular then states the exception. Where Schedule I makes the distribution a supply, you pay GST, and you may take the credit. Do not reverse credit and also pay output tax on the same goods. Pick the limb that applies.
+
+## When this challan is the wrong file
+
+- You charge a price, including a token price. That is consideration. Use the GST tax invoice.
+- The goods go to a related person, or to your own establishment that has a different GSTIN (a distinct person). Schedule I. Tax invoice. GST payable.
+- The "sample" is a gift to an employee and the gifts to that employee in the financial year exceed ₹50,000. Schedule I treats the excess as a supply. Gifts within ₹50,000 to an employee are not a supply, but they are still not this customer-sample challan.
+- You are only moving stock between two godowns under the **same** GSTIN. That can be a Rule 55 challan too, and it is not a free sample. Do not use the free-sample declaration.
+- The supplier is unregistered and you, the recipient, owe GST under reverse charge. That is a [self invoice](/templates/self-invoice-rcm-template), not a sample challan.
+
+## FAQ
+
+### Can I title the PDF "Tax Invoice" so the customer files it?
+No. Calling it a tax invoice does not create a supply, and it can create one on paper that you then have to explain. The heading on the sheet is a delivery challan. The page title matches the search people use.
+
+### What value do I put if I never sell this pack on its own?
+Use a real value: what it cost you, or the price you would have charged for the same goods. Rule 55 wants that figure on the challan. ₹0 is a bad value. It hides the consignment from the e-way bill test and does not describe the goods.
+
+### Does the consignee issue a self invoice for samples they received free?
+No. A self invoice is for a reverse-charge purchase from an unregistered supplier, where GST is payable. A free sample from a registered consigner, with no consideration, is not that purchase.
+
+### Is the Excel challan valid?
+GST law does not prescribe the software. It is valid when the Rule 55 particulars are on it and the declaration matches the facts. If the facts are a Schedule I supply, no layout makes this challan the right document.`;
+
+    const freeSamplePostData = {
+      title: "How to Create an Invoice for Free Sample under GST in Excel",
+      excerpt:
+        "An invoice for free samples under GST is a Rule 55 delivery challan, not a tax invoice. Worked sample: shampoo ₹2,550, cream ₹2,400, soap ₹840, total ₹5,790, and the consignee pays nothing.",
+      content: freeSamplePostContent,
+      featuredImage: null,
+      categoryId: guidesCategory.id,
+      seoTitle: "Free Sample Invoice under GST in Excel — Guide",
+      seoDescription:
+        "How to make an invoice for free samples under GST in Excel. Rule 55 delivery challan. Worked example: goods worth ₹5,790, no GST charged.",
+      published: true
+    };
+    await prisma.blogPost.upsert({
+      where: { slug: "how-to-create-invoice-for-free-sample-under-gst-in-excel" },
+      update: {
+        title: freeSamplePostData.title,
+        excerpt: freeSamplePostData.excerpt,
+        content: freeSamplePostData.content,
+        seoTitle: freeSamplePostData.seoTitle,
+        seoDescription: freeSamplePostData.seoDescription
+      },
+      create: { slug: "how-to-create-invoice-for-free-sample-under-gst-in-excel", ...freeSamplePostData }
     });
 
     const rentReceiptPostContent = `If you live in a rented house and receive House Rent Allowance (HRA) from your employer, rent receipts are the single most important document at tax time. They are what unlock the HRA exemption under Section 10(13A) of the Income Tax Act — and without them the entire HRA in your salary becomes taxable. Here is how to make a rent receipt in Excel that your employer and the income-tax department will accept.
