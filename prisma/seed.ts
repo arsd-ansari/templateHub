@@ -148,7 +148,7 @@ async function main() {
       description:
         "A free, ready-to-use GST tax invoice template for Excel and Google Sheets. CGST and SGST are calculated automatically — just enter quantity, rate, and GST rate. Includes every field required by Indian GST law.",
       content:
-        "A GST invoice is the document a registered business issues for a taxable sale in India — and under GST law it must contain specific details, or your buyer can be denied input tax credit. This template gives you a compliant format that does the tax maths for you. It is built for intra-state sales, where GST splits into CGST and SGST at half the rate each (an 18% item carries 9% + 9%). Enter the quantity, rate, and GST rate for each item, and the sheet calculates the taxable value, both taxes, and the grand total automatically. For inter-state sales you would instead charge a single IGST at the full rate. If you received goods or services from an **unregistered supplier** and GST is payable under Reverse Charge, do not use this tax invoice — download the [self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template) instead. Sending goods as free samples, with no consideration, is not this tax invoice either. Use the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst): it is a Rule 55 delivery challan, and GST is not charged.",
+        "A GST invoice is the document a registered business issues for a taxable sale in India — and under GST law it must contain specific details, or your buyer can be denied input tax credit. This template gives you a compliant format that does the tax maths for you. It is built for intra-state sales, where GST splits into CGST and SGST at half the rate each (an 18% item carries 9% + 9%). Enter the quantity, rate, and GST rate for each item, and the sheet calculates the taxable value, both taxes, and the grand total automatically. For inter-state sales you would instead charge a single IGST at the full rate. If you received goods or services from an **unregistered supplier** and GST is payable under Reverse Charge, do not use this tax invoice — download the [self invoice format under GST (RCM) Excel template](/templates/self-invoice-rcm-template) instead. Sending goods as free samples, with no consideration, is not this tax invoice either. Use the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst): it is a Rule 55 delivery challan, and GST is not charged. The bill an unregistered shop issues for an ordinary purchase, with no GST on it, is a [URD purchase bill](/templates/urd-purchase-bill-format), not this tax invoice.",
       fileUrl: "/files/gst-invoice-template.xlsx",
       thumbnailUrl: null,
       categoryId: gstCategory.id,
@@ -179,7 +179,7 @@ async function main() {
         {
           question: "What if the supplier is unregistered?",
           answer:
-            "If GST is payable by you under Reverse Charge, you must issue a self invoice — not a regular GST tax invoice. Download the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template), then the [RCM payment voucher](/templates/rcm-payment-voucher-template) when you pay."
+            "If GST is payable by you under Reverse Charge, you must issue a self invoice — not a regular GST tax invoice. Download the [RCM invoice format / self invoice](/templates/self-invoice-rcm-template), then the [RCM payment voucher](/templates/rcm-payment-voucher-template) when you pay. If the unregistered supplier is only handing you their own bill and you do not owe GST, keep that as a [URD purchase bill](/templates/urd-purchase-bill-format). Do not add GST to it."
         },
         {
           question: "Can I use this as an invoice for free samples under GST?",
@@ -204,7 +204,7 @@ async function main() {
       title: "RCM Invoice Format in Excel — Self Invoice (Unregistered Supplier)",
       description:
         "Free RCM invoice format in Excel. Self invoice for unregistered dealer purchases under GST. Auto-calculates CGST, SGST, and totals.",
-      content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. If you are the registered supplier issuing the bill (a GTA that has not opted to charge GST itself is the usual case), use the [RCM bill format](/templates/rcm-bill-format) instead — that file keeps GST off the amount you collect. Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
+      content: `This is a free **RCM invoice format in Excel** — the self invoice format under GST for Reverse Charge (RCM). Accountants also search for it as an **unregistered dealer invoice format**. Use it when you receive goods or services from an unregistered supplier and GST is payable by you as the recipient. If you are the registered supplier issuing the bill (a GTA that has not opted to charge GST itself is the usual case), use the [RCM bill format](/templates/rcm-bill-format) instead — that file keeps GST off the amount you collect. The commercial bill the unregistered shop gives you, with no GST and no GSTIN, is a different file: the [URD purchase bill format](/templates/urd-purchase-bill-format). Enter description, HSN/SAC, quantity, rate, and GST rate — Taxable Value, CGST, SGST, and Grand Total calculate automatically.
 
 Under Section 31(3)(f) of the CGST Act, a registered business that receives goods or services from an **unregistered supplier** (where GST is payable under Reverse Charge Mechanism) must issue a **self invoice** to itself.
 
@@ -298,14 +298,14 @@ For a regular tax invoice where the supplier is registered and charges GST, use 
             "Self invoicing under GST is the same process: you issue the GST invoice to yourself for an inward supply where Reverse Charge applies. The self invoice format under GST for RCM includes your GSTIN as recipient, the unregistered supplier's name (no GSTIN), Reverse Charge = Yes, and tax lines for CGST/SGST or IGST."
         },
         {
-          question: "What is the RCM invoice format / RCM bill format in Excel?",
+          question: "What is the RCM invoice format in Excel?",
           answer:
-            "The RCM invoice format (also called RCM bill format) is a self invoice you raise when GST is payable under Reverse Charge. This page is a free Excel download of that format: recipient GSTIN, unregistered supplier block, SI-series number, HSN/SAC lines, and auto CGST/SGST."
+            "This page is the RCM invoice format: a self invoice the recipient issues when the supplier is unregistered and GST is payable under reverse charge. It is not the [RCM bill format](/templates/rcm-bill-format). That bill is issued by a registered supplier, and the sample is GTA freight where the supplier does not collect the tax. Do not raise both for the same supply."
         },
         {
           question: "Is this an unregistered dealer invoice format in Excel?",
           answer:
-            "Yes. Use this file as the unregistered dealer invoice format when you buy from a dealer who has no GSTIN and tax is under RCM. Fill their name and address, leave GSTIN blank, and mark Reverse Charge as Yes."
+            "Yes, when GST is payable by you under reverse charge. You are the registered buyer, the dealer has no GSTIN, and you issue this invoice to yourself. Fill their name and address, leave GSTIN blank, and mark Reverse Charge as Yes. The dealer's own bill, with no GST on it, is a separate [URD purchase bill format](/templates/urd-purchase-bill-format). Do not add GST to the dealer's bill."
         },
         {
           question: "Is there a free self invoice format under GST Excel download?",
@@ -792,6 +792,120 @@ Guide: [How to create an invoice for free sample under GST in Excel](/blog/how-t
         faqs: freeSampleData.faqs
       },
       create: { slug: "invoice-for-free-sample-under-gst", ...freeSampleData }
+    });
+
+    const urdPurchaseBillData = {
+      title: "URD Purchase Bill Format in Excel",
+      description:
+        "Free unregistered purchase bill format in Excel. The bill a URD supplier issues. No GST and no GSTIN. Sample stationery purchase ₹4,800.",
+      content: `This is a free **URD purchase bill format in Excel** — the **unregistered purchase bill format** people also call an **unregistered purchase invoice format under GST**. The supplier is not registered. The bill shows the goods and the amount the buyer pays. It does not show GST, and it does not show a GSTIN for the supplier.
+
+Section 31 of the CGST Act tells a **registered** person to issue a tax invoice. An unregistered supplier is not that person. Section 32 says a person who is not registered shall not collect tax under the Act. Putting CGST and SGST on this bill is the mistake the sheet is built to prevent: there is no GST column.
+
+It is not a [self invoice](/templates/self-invoice-rcm-template). A self invoice is issued by the registered **buyer**, and only when GST is payable by the buyer under reverse charge. It is not the [GST invoice template](/templates/gst-invoice-template). That file is a registered supplier's tax invoice, and it adds tax to the total.
+
+## Worked sample: stationery, ₹4,800, GST nil
+
+The supplier is an unregistered stationery shop. The buyer is a business that wants the bill in the purchase file. HSN is on the sheet so the buyer can code the purchase register. An unregistered supplier is not under the Rule 46 HSN duty.
+
+| Goods | HSN | Qty | Rate | Amount |
+|---|---|---|---|---|
+| Copier paper, 75 gsm, ream | 4802 | 20 | ₹180 | ₹3,600 |
+| Ball pens | 9608 | 50 | ₹10 | ₹500 |
+| Desktop stapler | 8472 | 5 | ₹140 | ₹700 |
+| Value of goods | | | | **₹4,800** |
+| GST | | | | **₹0** |
+| Amount payable to the supplier | | | | **₹4,800** |
+
+Check the first line: 20 × 180 = 3,600. The total is 3,600 + 500 + 700 = 4,800. The GST cell is the number 0, not a formula you can turn into 18%. Amount payable is the goods total plus that zero.
+
+## When this bill is the right file
+
+- You buy goods or ordinary services from a shop, a freelancer, or a dealer who has **no GSTIN**, and the supply is **not** a notified reverse-charge supply.
+- You are that unregistered supplier, and a customer has asked for a proper bill. You sign it. You do not invent a GSTIN.
+
+Since 1 February 2019, reverse charge under Section 9(4) applies only to a **notified class** of registered recipient. Notification 07/2019-Central Tax (Rate) covers a promoter who receives specified supplies for a real-estate project. A stationery purchase by a normal business is not that class. You record ₹4,800. You do not pay GST on it, and you do not claim input tax credit. Nothing was charged.
+
+## When this bill is the wrong file
+
+- **GST is payable by the buyer under Section 9(3).** Goods transport, legal services by an advocate, and the other notified supplies still sit on reverse charge even when the supplier has no GSTIN. The buyer issues a [self invoice](/templates/self-invoice-rcm-template) and, on the day of payment, a [payment voucher](/templates/rcm-payment-voucher-template). Keep this purchase bill only as the supplier's request for the taxable value. Do not treat it as the tax document.
+- **The supplier is registered** and must charge GST. Use the [GST invoice template](/templates/gst-invoice-template).
+- **The supplier is registered and must not collect the tax** (a GTA that has not opted for forward charge, or a firm of advocates billing a business entity). Use the [RCM bill format](/templates/rcm-bill-format) or the [RCM tax invoice format](/templates/rcm-tax-invoice-format).
+- **The supplier is a composition dealer.** A composition dealer is registered and issues a bill of supply under Section 31(3)(c), not this unregistered bill.
+- **You are sending free samples.** That is a [delivery challan](/templates/invoice-for-free-sample-under-gst), and nobody pays the ₹4,800.
+
+## What you type
+
+Give the bill its own number. UPB-001 is the sample. Do not reuse a tax-invoice series or a self-invoice series. The supplier's GSTIN cell is fixed text: "Not registered — do not type a GSTIN". Leave spare item rows empty. The row formula returns a blank when quantity or rate is empty, so they stay out of the total.
+
+Rewrite the amount in words if you change the lines. The printed words match ₹4,800. Excel will not write the words for you.
+
+Guide: [How to create a URD purchase bill format in Excel](/blog/how-to-create-urd-purchase-bill-format-in-excel).`,
+      fileUrl: "/files/urd-purchase-bill-format.xlsx",
+      thumbnailUrl: null,
+      categoryId: gstCategory.id,
+      seoTitle: "URD Purchase Bill Format in Excel — Free",
+      seoDescription:
+        "Free unregistered purchase bill format in Excel. A URD supplier's bill with no GST and no GSTIN. Sample: paper, pens, and a stapler, ₹4,800.",
+      features: [
+        "Bill issued by an unregistered supplier — no GSTIN field to invent",
+        "No GST column. Section 32: an unregistered person does not collect tax",
+        "Amount = quantity × rate, totalled. GST cell stays at zero",
+        "Amount payable equals the goods total. Sample ₹4,800",
+        "Separate from the self invoice a buyer issues under reverse charge",
+        "Works in Excel, Google Sheets, and LibreOffice"
+      ],
+      instructions: [
+        "Download the file and open it in Excel, Google Sheets, or LibreOffice.",
+        "Fill in the supplier's legal name, address, and state. Leave the GSTIN line as Not registered.",
+        "Give the bill its own number, such as UPB-001, and enter the date.",
+        "Fill in the buyer. Write their GSTIN only if they have one. It does not put GST on this bill.",
+        "Enter description, HSN, quantity, unit, and rate. Amount and the total fill in. Do not add GST.",
+        "Read the amount payable. It equals the goods total. Rewrite the amount in words if you change the lines.",
+        "The supplier signs it. The buyer files it with the purchase. If reverse charge applies, the buyer also issues a self invoice."
+      ],
+      faqs: [
+        {
+          question: "What is a URD purchase bill format?",
+          answer:
+            "It is the commercial bill an unregistered dealer (URD) issues for a sale. It shows the goods and the amount payable. It does not show GST and it does not show a supplier GSTIN. People also search for it as an unregistered purchase bill format or an unregistered purchase invoice format under GST."
+        },
+        {
+          question: "Can an unregistered supplier charge GST on this bill?",
+          answer:
+            "No. Section 32 of the CGST Act says a person who is not a registered person shall not collect tax under the Act. Section 31's tax invoice is issued by a registered person. This sheet has no GST rate column. The GST cell is zero, and amount payable is the goods total."
+        },
+        {
+          question: "Is a URD purchase bill the same as a self invoice?",
+          answer:
+            "No. The unregistered supplier issues this bill, and it collects no tax. The registered buyer issues a [self invoice](/templates/self-invoice-rcm-template) under Section 31(3)(f) only when GST is payable by the buyer under reverse charge. Do not create one for an ordinary stationery purchase."
+        },
+        {
+          question: "Can the buyer claim input tax credit on a URD bill?",
+          answer:
+            "No. Input tax credit needs tax that was charged on a valid tax invoice. This bill charges none. Record the purchase at the amount payable (₹4,800 in the sample) and do not book input CGST or SGST."
+        },
+        {
+          question: "Does every purchase from an unregistered dealer attract reverse charge?",
+          answer:
+            "No. Section 9(4) reverse charge on purchases from unregistered suppliers applies only to a notified class of recipient. Notification 07/2019 covers a promoter receiving specified supplies for a real-estate project. A normal business buying stationery does not pay GST under Section 9(4). Section 9(3) still covers specific supplies such as GTA and legal services. Those need a [self invoice](/templates/self-invoice-rcm-template), not GST typed onto this bill."
+        }
+      ]
+    };
+    await prisma.template.upsert({
+      where: { slug: "urd-purchase-bill-format" },
+      update: {
+        title: urdPurchaseBillData.title,
+        fileUrl: urdPurchaseBillData.fileUrl,
+        description: urdPurchaseBillData.description,
+        content: urdPurchaseBillData.content,
+        seoTitle: urdPurchaseBillData.seoTitle,
+        seoDescription: urdPurchaseBillData.seoDescription,
+        features: urdPurchaseBillData.features,
+        instructions: urdPurchaseBillData.instructions,
+        faqs: urdPurchaseBillData.faqs
+      },
+      create: { slug: "urd-purchase-bill-format", ...urdPurchaseBillData }
     });
   }
 
@@ -2658,6 +2772,97 @@ GST law does not prescribe the software. It is valid when the Rule 55 particular
         seoDescription: freeSamplePostData.seoDescription
       },
       create: { slug: "how-to-create-invoice-for-free-sample-under-gst-in-excel", ...freeSamplePostData }
+    });
+
+    const urdPurchasePostContent = `A **URD purchase bill format** is the bill an unregistered supplier gives you. It is also what people mean by an **unregistered purchase bill format** and, often, by an **unregistered purchase invoice format under GST**. This guide fills one in Excel and checks the arithmetic: copier paper ₹3,600, ball pens ₹500, a desktop stapler ₹700, total ₹4,800, GST nil. Download the [URD purchase bill format](/templates/urd-purchase-bill-format) and follow the cells.
+
+The same search with "invoice" instead of "bill" is this document when the supplier has no GSTIN and nobody is paying GST. It is not the self invoice.
+
+## Why there is no GST on it
+
+Section 31 of the CGST Act requires a **registered** person to issue a tax invoice. The shop in this example is not registered, so it cannot issue one, and it must not borrow a customer's GSTIN or type a fake one.
+
+Section 32 is the line that decides the total. A person who is not a registered person shall not collect any amount by way of tax under the Act. The sheet therefore has no GST % column. The GST cell is the number 0. Amount payable is the goods total plus that zero, which is the goods total.
+
+A bill of supply is the wrong name for this file. Section 31(3)(c) and Rule 49 are for a registered person supplying exempt goods, or for a composition dealer. A composition dealer has a GSTIN. An unregistered shop does not.
+
+## Worked example: ₹4,800, nothing added
+
+| Line | HSN | Qty | Rate | Amount |
+|---|---|---|---|---|
+| Copier paper, 75 gsm, ream | 4802 | 20 | 180 | 3,600 |
+| Ball pens | 9608 | 50 | 10 | 500 |
+| Desktop stapler | 8472 | 5 | 140 | 700 |
+| Value of goods | | | | 4,800 |
+| GST | | | | 0 |
+| Amount payable to the supplier | | | | 4,800 |
+
+20 × 180 = 3,600. If that cell shows 3,600.00 you are looking at the format, not a different number. 50 × 10 = 500. 5 × 140 = 700. The total cell is a SUM of the amount column. Empty spare rows stay out of the sum because the row formula returns a blank when quantity or rate is empty.
+
+The amount in words on the sample is "Rupees Four Thousand Eight Hundred Only". Change the words when you change the lines. The sheet will not write them.
+
+HSN 4802 is uncoated paper, 9608 is pens, and 8472 is the heading used here for a desktop stapler (office machines). Those codes are for the buyer's purchase register. Rule 46's HSN digit rule applies to a registered supplier's tax invoice, not to this bill.
+
+## What to type, in order
+
+1. **Supplier.** Legal name, address, and state. The GSTIN line stays "Not registered — do not type a GSTIN".
+2. **Bill number and date.** A series of its own. UPB-001 is the sample. Do not reuse INV- (tax invoices) or SI- (self invoices).
+3. **Buyer.** Name, address, and state. GSTIN only if the buyer has one. A buyer's GSTIN does not turn this into a tax invoice.
+4. **Lines.** Description, HSN, quantity, unit, and rate. Leave spare rows empty.
+5. **Amount payable.** It must equal the goods total. If it does not, a rate or a quantity is wrong. Do not type a tax figure into the GST cell.
+6. **Words and signature.** The supplier signs. Give the buyer a copy. Keep one.
+
+## Reverse charge, and when you still need a self invoice
+
+Most purchases from an unregistered person are not reverse charge. Section 9(4) used to worry every buyer. From 1 February 2019 it applies only to a notified class of registered persons. Notification No. 07/2019-Central Tax (Rate) notifies a promoter who receives specified goods or services from an unregistered supplier for construction of a project. A business buying paper and pens is not that promoter. Record ₹4,800. Pay the shop ₹4,800. Do not deposit GST on it.
+
+Section 9(3) is the list that still matters: GTA, legal services by an advocate, services by a director, and the other notified supplies. If the supply is on that list and the supplier has no GSTIN, the buyer issues a [self invoice](/templates/self-invoice-rcm-template) and a [payment voucher](/templates/rcm-payment-voucher-template). This purchase bill can sit in the file as what the supplier asked to be paid. It is not the document that supports input tax credit. The self invoice is.
+
+Input tax credit on the stationery itself does not exist. No tax was charged. Booking CGST of 9% on ₹4,800 (₹432) would invent a credit the law does not give you.
+
+## When this bill is the wrong file
+
+- The supplier has a GSTIN and the supply is taxable. Use the [GST invoice template](/templates/gst-invoice-template). They collect the tax.
+- The supplier has a GSTIN and reverse charge applies, so they must not collect the tax. A GTA uses the [RCM bill format](/templates/rcm-bill-format). A firm of advocates uses the [RCM tax invoice format](/templates/rcm-tax-invoice-format).
+- The supplier is a composition dealer. They are registered. They issue a bill of supply, and they mention that they are a composition dealer. This unregistered layout hides that fact.
+- The goods are free samples. Nobody pays ₹4,800. Use the [invoice for free sample under GST](/templates/invoice-for-free-sample-under-gst).
+
+## FAQ
+
+### Can I title the PDF "Tax Invoice" so my buyer can claim credit?
+No. The title does not create a registration, and Section 32 still forbids collection of tax. A buyer who claims credit on this PDF is claiming credit on tax that was not paid. Leave the heading as a purchase bill.
+
+### What if the unregistered supplier later gets a GSTIN?
+Bills issued after the effective date of registration are tax invoices, from their new series, with GST if the supply is taxable. Bills issued before that date stay unregistered bills. Do not go back and add GST to UPB-001.
+
+### The buyer asked me to add their GSTIN. Does that charge GST?
+No. Their GSTIN identifies the buyer in their purchase register. The supplier's status cell still says Unregistered, and the GST cell stays 0.
+
+### Is the Excel bill valid?
+GST law does not prescribe the software for a commercial bill. It is the right record when the supplier is actually unregistered and the amount payable matches what was paid. If the facts are a reverse-charge supply, the buyer still needs a self invoice. No layout of this bill replaces that.`;
+
+    const urdPurchasePostData = {
+      title: "How to Create a URD Purchase Bill Format in Excel",
+      excerpt:
+        "An unregistered purchase bill charges no GST. Worked sample: copier paper ₹3,600, pens ₹500, stapler ₹700, total ₹4,800, and Section 32 is why the tax stays at zero.",
+      content: urdPurchasePostContent,
+      featuredImage: null,
+      categoryId: guidesCategory.id,
+      seoTitle: "URD Purchase Bill Format in Excel — Guide",
+      seoDescription:
+        "How to make an unregistered purchase bill in Excel. No GST and no supplier GSTIN. Worked example: stationery worth ₹4,800.",
+      published: true
+    };
+    await prisma.blogPost.upsert({
+      where: { slug: "how-to-create-urd-purchase-bill-format-in-excel" },
+      update: {
+        title: urdPurchasePostData.title,
+        excerpt: urdPurchasePostData.excerpt,
+        content: urdPurchasePostData.content,
+        seoTitle: urdPurchasePostData.seoTitle,
+        seoDescription: urdPurchasePostData.seoDescription
+      },
+      create: { slug: "how-to-create-urd-purchase-bill-format-in-excel", ...urdPurchasePostData }
     });
 
     const rentReceiptPostContent = `If you live in a rented house and receive House Rent Allowance (HRA) from your employer, rent receipts are the single most important document at tax time. They are what unlock the HRA exemption under Section 10(13A) of the Income Tax Act — and without them the entire HRA in your salary becomes taxable. Here is how to make a rent receipt in Excel that your employer and the income-tax department will accept.

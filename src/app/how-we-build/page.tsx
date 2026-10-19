@@ -71,7 +71,8 @@ export default function HowWeBuildPage() {
           AdSense and search reviewers (and you) should be able to see that the site is a maintained library with a named editor, not an auto-generated download mill. The steps below are the same ones used for the{" "}
           <Link href="/templates/gst-invoice-template">GST invoice</Link>,{" "}
           <Link href="/templates/self-invoice-rcm-template">RCM invoice format</Link>,{" "}
-          <Link href="/templates/rcm-bill-format">RCM bill format</Link>, and{" "}
+          <Link href="/templates/rcm-bill-format">RCM bill format</Link>, the{" "}
+          <Link href="/templates/urd-purchase-bill-format">URD purchase bill</Link>, and the{" "}
           <Link href="/templates/rcm-payment-voucher-template">RCM payment voucher</Link> files that are already live.
         </p>
 

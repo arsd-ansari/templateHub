@@ -101,6 +101,7 @@ export default async function HomePage() {
               <Link href="/templates/rcm-bill-format" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Bill Format</Link>
               <Link href="/templates/self-invoice-rcm-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Invoice Format</Link>
               <Link href="/templates/rcm-payment-voucher-template" className="text-[var(--primary)] underline-offset-4 hover:underline">RCM Payment Voucher</Link>
+              <Link href="/templates/urd-purchase-bill-format" className="text-[var(--primary)] underline-offset-4 hover:underline">URD Purchase Bill</Link>
               <Link href="/categories/gst-templates" className="text-[var(--primary)] underline-offset-4 hover:underline">All GST templates</Link>
             </div>
             <div className="mt-6 flex flex-wrap gap-3">
@@ -134,7 +135,7 @@ export default async function HomePage() {
             <div>
               <h2 className="text-2xl font-bold">GST Invoice Templates (India)</h2>
               <p className="mt-2 text-[var(--muted-foreground)]">
-                Tax invoice for registered sales, an RCM bill when the supplier must not collect GST, a self invoice for unregistered suppliers, and a payment voucher.
+                Tax invoice for registered sales, an RCM bill when the supplier must not collect GST, a self invoice when reverse charge applies, a URD purchase bill when the supplier charges no GST, and a payment voucher.
               </p>
             </div>
             <div className="flex flex-wrap gap-2">
